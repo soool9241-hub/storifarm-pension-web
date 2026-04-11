@@ -1,4 +1,4 @@
-import SixStageFunnel from "@/components/funnel/SixStageFunnel";
+import CustomerJourney from "@/components/funnel/CustomerJourney";
 
 export default function Home() {
   return (
@@ -94,22 +94,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6-STAGE FUNNEL */}
+      {/* CUSTOMER JOURNEY */}
       <section className="border-b border-ink-100 bg-ink-100/20">
         <div className="container-narrow py-16">
           <div className="mb-6">
-            <div className="label">시스템 구조</div>
+            <div className="label">사장님의 여정</div>
             <h2 className="mt-1 text-2xl font-bold sm:text-3xl">
-              6단계 자동 매출 퍼널
+              진단부터 운영까지, 저희가 같이 갑니다
             </h2>
             <p className="mt-2 text-sm text-ink-700">
-              달팽이아지트에서 검증한 구조 그대로 복제합니다.
+              한 번에 다 하실 필요 없어요. 사장님 상황에 맞는 단계부터 시작하시면 됩니다.
             </p>
           </div>
-          <SixStageFunnel />
-          <div className="mt-5 text-xs text-ink-500">
-            <b>자동화 포인트:</b> S1 진단도구 자동 · S2 리포트 자동생성 · S3 템플릿
-            복제 · S4 n8n 알림 · S5 녹화 강의 · S6 파트너가 제작 대행
+          <CustomerJourney />
+          <div className="mt-6 rounded-xl bg-white p-5 text-xs text-ink-500 ring-1 ring-ink-100">
+            <b className="text-ink-900">👋 먼저 이것만 해보세요 —</b> 3분짜리 무료 진단.
+            사장님 펜션 상태부터 본 뒤에, 필요한 단계만 골라가세요. 억지로 제작 의뢰할 필요
+            없습니다.
           </div>
         </div>
       </section>

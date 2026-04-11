@@ -18,6 +18,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <Link href="/admin" className="rounded-lg px-3 py-1.5 hover:bg-white">대시보드</Link>
               <Link href="/admin/leads" className="rounded-lg px-3 py-1.5 hover:bg-white">리드</Link>
               <Link href="/admin/funnel" className="rounded-lg px-3 py-1.5 hover:bg-white">퍼널</Link>
+              <Link href="/admin/plan" className="rounded-lg px-3 py-1.5 hover:bg-white">사업 계획</Link>
             </nav>
           </div>
           <form action="/api/admin/logout" method="post">
