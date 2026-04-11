@@ -85,7 +85,7 @@ export default function CustomerJourney() {
             {s.cta && (
               <a
                 href={s.cta.href}
-                className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-brand-700 transition hover:text-brand-900"
+                className="mt-5 inline-flex items-center gap-2 rounded-xl bg-brand-50 px-4 py-2.5 text-sm font-semibold text-brand-900 ring-1 ring-brand-500/40 transition hover:bg-brand-700 hover:text-white hover:ring-brand-700"
               >
                 {s.cta.label}
                 <span aria-hidden>→</span>
