@@ -95,23 +95,20 @@ export default function Home() {
       </section>
 
       {/* CUSTOMER JOURNEY */}
-      <section className="border-b border-ink-100 bg-ink-100/20">
-        <div className="container-narrow py-16">
-          <div className="mb-6">
+      <section className="border-b border-ink-100">
+        <div className="container-narrow py-20 sm:py-24">
+          <div className="mb-12 max-w-xl">
             <div className="label">사장님의 여정</div>
-            <h2 className="mt-1 text-2xl font-bold sm:text-3xl">
-              진단부터 운영까지, 저희가 같이 갑니다
+            <h2 className="mt-2 text-2xl font-bold leading-snug text-ink-900 sm:text-3xl">
+              진단부터 운영까지, <br className="sm:hidden" />
+              같이 갑니다.
             </h2>
-            <p className="mt-2 text-sm text-ink-700">
-              한 번에 다 하실 필요 없어요. 사장님 상황에 맞는 단계부터 시작하시면 됩니다.
+            <p className="mt-3 text-sm leading-relaxed text-ink-500">
+              한 번에 다 하실 필요 없어요. 사장님 상황에 맞는 단계부터 시작하시면
+              됩니다. 억지로 제작 의뢰할 필요도 없고요.
             </p>
           </div>
           <CustomerJourney />
-          <div className="mt-6 rounded-xl bg-white p-5 text-xs text-ink-500 ring-1 ring-ink-100">
-            <b className="text-ink-900">👋 먼저 이것만 해보세요 —</b> 3분짜리 무료 진단.
-            사장님 펜션 상태부터 본 뒤에, 필요한 단계만 골라가세요. 억지로 제작 의뢰할 필요
-            없습니다.
-          </div>
         </div>
       </section>
 
