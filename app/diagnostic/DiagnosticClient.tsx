@@ -90,7 +90,7 @@ export default function DiagnosticClient() {
             placeholder="010-0000-0000"
             type="tel"
           />
-          <Field label="펜션명 (선택)" v={form.pension_name} onChange={(v) => setForm({ ...form, pension_name: v })} placeholder="달팽이아지트" />
+          <Field label="펜션명 (선택)" v={form.pension_name} onChange={(v) => setForm({ ...form, pension_name: v })} placeholder="○○펜션" />
           <Field label="지역 (선택)" v={form.region} onChange={(v) => setForm({ ...form, region: v })} placeholder="전북 완주" />
         </div>
 

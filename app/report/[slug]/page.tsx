@@ -49,7 +49,7 @@ export default async function ReportPage({ params }: Props) {
           {name} 사장님의 {pensionName} 온라인 진단 결과
         </h1>
         <p className="mt-2 text-sm text-ink-700">
-          7년차 펜션 운영자 달팽이아지트 임솔이 직접 설계한 20개 항목 기반 리포트입니다.
+          7년차 펜션 운영자가 직접 설계한 20개 항목 기반 리포트입니다.
         </p>
       </div>
 
@@ -129,21 +129,13 @@ export default async function ReportPage({ params }: Props) {
 
       {/* Real proof */}
       <div className="mt-8 card p-6">
-        <div className="label">실제 사례 — 달팽이아지트</div>
-        <h2 className="mt-1 text-lg font-bold">2021년 1,210만원 → 2025년 8,248만원</h2>
+        <div className="label">실제 사례</div>
+        <h2 className="mt-1 text-lg font-bold">초기 1,210만원 → 현재 8,248만원 (7배 성장)</h2>
         <p className="mt-2 text-sm text-ink-700">
-          저(임솔)도 처음엔 에어비앤비 수수료로 한 해 수백만원을 흘려보냈습니다.
+          저도 처음엔 에어비앤비 수수료로 한 해 수백만원을 흘려보냈습니다.
           홈페이지 + 네이버 광고 + SMS 자동화로 5년간 구조를 쌓았더니 매출이
           7배가 됐습니다. 그 시스템을 그대로 복제해드립니다.
         </p>
-        <a
-          href="https://dalpaengi-five.vercel.app"
-          target="_blank"
-          rel="noopener"
-          className="mt-4 inline-block text-sm text-brand-700 underline"
-        >
-          실제 운영 사이트 보기 →
-        </a>
       </div>
 
       {/* CTA */}

@@ -48,13 +48,7 @@ export default function ContactClient({
         <div className="text-5xl">✅</div>
         <h2 className="mt-3 text-xl font-bold">상담 신청이 접수되었습니다</h2>
         <p className="mt-2 text-sm text-ink-700">
-          임솔 대표가 24시간 내 직접 연락드립니다.
-          <br />
-          그동안 먼저{" "}
-          <a href="https://dalpaengi-five.vercel.app" target="_blank" rel="noopener" className="underline">
-            달팽이아지트 실사이트
-          </a>
-          를 구경해보세요.
+          24시간 내 운영자가 직접 연락드립니다.
         </p>
       </div>
     );
@@ -136,7 +130,7 @@ export default function ContactClient({
         {status === "sending" ? "전송 중..." : "상담 신청하기"}
       </button>
       <p className="text-center text-[11px] text-ink-500">
-        * 제출 후 24시간 내 임솔 대표가 직접 연락드립니다.
+        * 제출 후 24시간 내 운영자가 직접 연락드립니다.
       </p>
     </form>
   );

@@ -79,7 +79,7 @@ export default function PartnersClient() {
             checked={form.academy_grad}
             onChange={(e) => setForm({ ...form, academy_grad: e.target.checked })}
           />
-          스토리팜 4주 아카데미 수료(예정)
+          4주 아카데미 수료(예정)
         </label>
       </div>
       {err && <div className="mt-3 rounded-lg bg-red-50 p-3 text-xs text-red-700">{err}</div>}

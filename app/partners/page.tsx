@@ -1,7 +1,7 @@
 import PartnersClient from "./PartnersClient";
 
 export const metadata = {
-  title: "파트너 라이선스 — 스토리팜",
+  title: "파트너 라이선스",
   description: "1인 1지역 독점. 7년차 운영자의 시스템을 그대로 복제해 지역 파트너로 사업을 시작하세요.",
 };
 
@@ -33,7 +33,7 @@ export default function PartnersPage() {
                 "Supabase / n8n 자동화 워크플로우 복제",
                 "네이버 광고 캠페인 템플릿",
                 "진단 도구 · 제안서 · 스크립트 사용권",
-                "브랜드(스토리팜) 공동 사용권",
+                "브랜드 공동 사용권",
                 "초기 3건 공동 제작 OJT",
                 "주 1회 1:1 미팅 (기술 백업)",
               ].map((x) => (

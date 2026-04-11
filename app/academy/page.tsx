@@ -1,7 +1,7 @@
 import AcademyClient from "./AcademyClient";
 
 export const metadata = {
-  title: "운영 아카데미 — 스토리팜",
+  title: "운영 아카데미",
   description: "펜션 사장님이 직접 네이버 광고와 홈페이지를 운영할 수 있도록 가르쳐드립니다.",
 };
 

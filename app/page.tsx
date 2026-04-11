@@ -5,15 +5,16 @@ export default function Home() {
     <>
       {/* HERO — 운영자의 편지 */}
       <section className="border-b border-ink-100">
-        <div className="container-narrow py-20 sm:py-28">
+        <div className="container-narrow py-16 text-center sm:py-24">
           <div className="label">펜션 사장님께 드리는 편지</div>
 
-          <h1 className="mt-3 text-[26px] font-bold leading-snug text-ink-900 sm:text-[34px]">
-            안녕하세요 사장님,<br />
-            저는 60평 대형 펜션을 7년째 직접 돌리고 있는 사람입니다.
+          <h1 className="mt-3 text-[22px] font-bold leading-snug text-ink-900 sm:text-[32px]">
+            00평 펜션 7년간 매출 7배 성장
+            <br />
+            펜션 운영중인 펜션지기 입니다!
           </h1>
 
-          <div className="mt-10 space-y-5 text-[15px] leading-[1.9] text-ink-700 sm:text-base">
+          <div className="mx-auto mt-10 max-w-xl space-y-5 text-left text-[15px] leading-[1.9] text-ink-700 sm:text-base">
             <p>
               처음엔 저도 홈페이지 같은 건 만들 생각도 없었어요. 에어비앤비에
               올리고, 야놀자에 올리고, 전화 오면 받고. 그게 전부였습니다.
@@ -33,8 +34,8 @@ export default function Home() {
             <p>
               그래서 제가 직접 만들었습니다. 홈페이지, 예약 시스템, SMS
               자동화, 네이버 광고 37키워드, 재방문 트리거까지. 하나하나 제
-              펜션에서 테스트해보면서 5년을 쌓았어요. 그 결과는 이겁니다 —{" "}
-              <b>2021년 매출 1,210만원 → 2025년 8,248만원, 7배 성장.</b>
+              펜션에서 테스트해보면서 5년을 쌓았어요. 그 결과는, 매출이
+              예전과는 비교가 안 될 정도로 달라졌습니다.
             </p>
 
             <p>
@@ -53,29 +54,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-10 flex items-end justify-between border-t border-ink-100 pt-6">
-            <div className="text-sm text-ink-500">
-              <div>전북 완주 소양면에서</div>
-              <div className="mt-1 text-base font-semibold text-ink-900">
-                임솔 드림
-              </div>
-              <div className="mt-0.5 text-xs">달팽이아지트 펜션 대표 · 7년차</div>
+          <div className="mx-auto mt-12 max-w-xl border-t border-ink-100 pt-6 text-center">
+            <div className="text-sm text-ink-500">전북 완주 소양면에서</div>
+            <div className="mt-1 text-base font-semibold text-ink-900">
+              7년차 펜션 운영자 드림
             </div>
-            <a
-              href="https://dalpaengi-five.vercel.app"
-              target="_blank"
-              rel="noopener"
-              className="text-xs text-ink-500 underline underline-offset-4 hover:text-ink-900"
-            >
-              제가 운영하는 펜션 보러가기 ↗
-            </a>
           </div>
 
-          <div className="mt-12 flex flex-wrap gap-3">
-            <a href="/diagnostic" className="btn-primary">
+          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a href="/diagnostic" className="btn-primary w-full sm:w-auto">
               먼저 무료 진단부터 받아보기 →
             </a>
-            <a href="/contact" className="btn-ghost">
+            <a href="/contact" className="btn-ghost w-full sm:w-auto">
               바로 30분 상담 신청
             </a>
           </div>
@@ -100,7 +90,7 @@ export default function Home() {
                 <tr>
                   <th className="p-3 text-left font-medium">항목</th>
                   <th className="p-3 text-left font-medium">일반 웹에이전시</th>
-                  <th className="p-3 text-left font-medium text-brand-700">스토리팜</th>
+                  <th className="p-3 text-left font-medium text-brand-700">운영자 직접 제작</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-ink-100">
@@ -124,6 +114,84 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PRODUCTS — 소비자가 고를 수 있는 상품 */}
+      <section className="border-b border-ink-100">
+        <div className="container-wide py-16 sm:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="label">사장님이 고를 수 있는 4가지</div>
+            <h2 className="mt-2 text-2xl font-bold leading-snug text-ink-900 sm:text-3xl">
+              필요한 것만 고르시면 됩니다
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-ink-500 sm:text-base">
+              전부 다 하실 필요 없어요. <b>모든 건 무료 진단에서 시작</b>합니다.
+              사장님 펜션 상태부터 본 다음, 4가지 중 필요한 것만 골라서 가시면 됩니다.
+            </p>
+          </div>
+
+          <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
+            {[
+              {
+                tag: "제작",
+                title: "펜션 홈페이지 제작",
+                price: "150만 ~ 500만원 (1회)",
+                body: "라이트/스탠다드/프리미엄 3티어. 7년간 실전 검증한 템플릿 5종 중 하나를 고르시면 예약 시스템·SMS 자동화·네이버 광고까지 14~21일 안에 세팅해드립니다.",
+                fits: "홈페이지가 아예 없거나, OTA에만 의존 중인 사장님",
+              },
+              {
+                tag: "관리",
+                title: "월 유지보수 구독",
+                price: "월 5만 ~ 15만원",
+                body: "홈페이지 완성 후 혼자 돌리기 어려운 사장님을 위한 월 관리. 콘텐츠 수정·네이버 광고 키워드 점검·방문자 리포트까지 대신 봐드립니다.",
+                fits: "제작은 끝났지만 성수기 광고·콘텐츠 업데이트가 막막한 사장님",
+              },
+              {
+                tag: "교육",
+                title: "4주 운영 아카데미",
+                price: "4주 과정",
+                body: "7년간 검증한 네이버 광고 37키워드, SMS 자동화, 재방문 트리거를 사장님이 직접 돌릴 수 있게 4주 아카데미로 이식해드립니다.",
+                fits: "대행사 맡기긴 싫고 직접 광고를 돌리고 싶은 사장님",
+              },
+              {
+                tag: "사업",
+                title: "지역 파트너 라이선스",
+                price: "1인 1지역 독점 (20명 한정)",
+                body: "템플릿·자동화·광고 세팅을 그대로 드리고, 초기 3건은 제가 함께 만듭니다. 이 사업을 본인 지역에서 직접 운영하고 싶은 분을 위한 트랙입니다.",
+                fits: "내 지역에서 이 사업을 직접 하고 싶은 분",
+              },
+            ].map((p) => (
+              <div key={p.title} className="card flex flex-col p-6 text-left">
+                <div className="inline-flex w-fit items-center rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-semibold text-brand-700">
+                  {p.tag}
+                </div>
+                <h3 className="mt-3 text-lg font-bold text-ink-900 sm:text-xl">
+                  {p.title}
+                </h3>
+                <div className="mt-1 text-xs font-medium text-brand-700">{p.price}</div>
+                <p className="mt-3 text-sm leading-relaxed text-ink-700">{p.body}</p>
+                <div className="mt-4 border-t border-ink-100 pt-3 text-[12px] text-ink-500">
+                  <b className="text-ink-700">이런 분께:</b> {p.fits}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mx-auto mt-10 max-w-xl text-center">
+            <p className="text-sm text-ink-700">
+              어떤 걸 골라야 할지 모르시겠죠? <b>당연합니다.</b>
+              <br className="hidden sm:block" />
+              그래서 먼저 <b>무료 진단</b>부터 해드리는 거예요. 3분이면 끝나고,
+              결과를 보고 필요한 것만 고르시면 됩니다.
+            </p>
+            <a
+              href="/diagnostic"
+              className="btn-primary mt-6 inline-flex w-full sm:w-auto"
+            >
+              3분 무료 진단으로 시작하기 →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CUSTOMER JOURNEY */}
       <section className="border-b border-ink-100">
         <div className="container-narrow py-20 sm:py-24">
@@ -142,22 +210,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DALPAENGI RESULTS */}
+      {/* RESULTS */}
       <section className="border-b border-ink-100">
         <div className="container-wide py-16">
-          <h2 className="text-2xl font-bold sm:text-3xl">달팽이아지트 실적</h2>
+          <h2 className="text-2xl font-bold sm:text-3xl">7년간 매출 7배 성장</h2>
           <p className="mt-3 text-ink-700">
             시스템을 만들면 매출이 따라옵니다. 광고비가 아니라 구조가 답입니다.
           </p>
 
           <div className="mt-8 grid gap-4 sm:grid-cols-2">
             <div className="card p-6">
-              <div className="label">2021년</div>
+              <div className="label">초기</div>
               <div className="mt-1 text-3xl font-bold">1,210만원</div>
               <div className="mt-1 text-sm text-ink-500">예약 16건 · OTA 의존</div>
             </div>
             <div className="card p-6 ring-2 ring-brand-500">
-              <div className="label text-brand-700">2025년</div>
+              <div className="label text-brand-700">현재</div>
               <div className="mt-1 text-3xl font-bold text-brand-900">8,248만원</div>
               <div className="mt-1 text-sm text-brand-700">예약 94건 · 자체 예약 58%</div>
               <div className="mt-2 inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-semibold text-brand-700">
@@ -165,17 +233,6 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="mt-6 text-sm text-ink-500">
-            * 실제 운영 사이트 —{" "}
-            <a
-              href="https://dalpaengi-five.vercel.app"
-              target="_blank"
-              rel="noopener"
-              className="underline"
-            >
-              dalpaengi-five.vercel.app
-            </a>
-          </p>
         </div>
       </section>
 

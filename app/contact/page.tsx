@@ -1,7 +1,7 @@
 import ContactClient from "./ContactClient";
 
 export const metadata = {
-  title: "상담 신청 — 스토리팜",
+  title: "상담 신청",
   description: "30분 무료 상담. 현황 진단 + 맞춤 Tier 추천 + 경쟁사 비교.",
 };
 
@@ -27,12 +27,6 @@ export default function ContactPage({
         />
       </div>
 
-      <div className="mt-10 rounded-2xl bg-ink-100/40 p-6 text-sm text-ink-700">
-        <div className="font-semibold text-ink-900">바로 연락 주셔도 됩니다</div>
-        <div className="mt-2">📞 010-8531-9531</div>
-        <div>💬 카카오톡 sool9241</div>
-        <div>📧 help@healingstay.com</div>
-      </div>
     </div>
   );
 }

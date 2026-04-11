@@ -13,7 +13,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       <div className="border-b border-ink-100 bg-ink-100/40">
         <div className="container-wide flex items-center justify-between py-3 text-sm">
           <div className="flex items-center gap-4">
-            <span className="font-semibold">⚙️ 스토리팜 관리자</span>
+            <span className="font-semibold">⚙️ 관리자</span>
             <nav className="flex gap-1">
               <Link href="/admin" className="rounded-lg px-3 py-1.5 hover:bg-white">대시보드</Link>
               <Link href="/admin/leads" className="rounded-lg px-3 py-1.5 hover:bg-white">리드</Link>

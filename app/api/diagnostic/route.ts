@@ -98,7 +98,7 @@ export async function POST(req: Request) {
   // 4. Send SMS (non-blocking-ish but awaited for user confirmation)
   const sms = await sendSms({
     to: phone,
-    subject: "[스토리팜] 펜션 진단 리포트",
+    subject: "[펜션운영자의 편지] 펜션 진단 리포트",
     text: buildReportSms({ name, reportUrl, grade: `${result.grade}등급 (${result.pct}점)` }),
   });
 

@@ -69,7 +69,7 @@ export async function POST(req: Request) {
   // confirm to user
   await sendSms({
     to: d.phone,
-    text: `[스토리팜] ${d.name} 사장님, 상담 신청이 접수되었습니다. 24시간 내 임솔 대표가 직접 연락드립니다. 감사합니다.`,
+    text: `[펜션운영자의 편지] ${d.name} 사장님, 상담 신청이 접수되었습니다. 24시간 내 운영자가 직접 연락드립니다. 감사합니다.`,
   });
 
   return NextResponse.json({ ok: true });

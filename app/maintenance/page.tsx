@@ -1,7 +1,7 @@
 import MaintenanceClient from "./MaintenanceClient";
 
 export const metadata = {
-  title: "월 유지보수 구독 — 스토리팜",
+  title: "월 유지보수 구독",
   description: "홈페이지 만든 후 혼자 돌리기 어려운 사장님을 위한 월 관리 구독. 월 5~15만원.",
 };
 
@@ -51,7 +51,7 @@ export default function MaintenancePage() {
           </h1>
           <p className="mt-3 max-w-2xl text-ink-700">
             홈페이지를 납품하고 “끝”이라고 말하는 에이전시가 많죠. 저는
-            달팽이아지트도 제가 돌리고 있어서, 펜션 운영이 어떤 흐름인지
+            제 펜션을 계속 돌리고 있어서, 펜션 운영이 어떤 흐름인지
             압니다. 성수기 전 광고 점검, 콘텐츠 수정, 작은 기술 장애 — 사장님이
             신경 안 써도 되게 저희가 대신 봐드립니다.
           </p>

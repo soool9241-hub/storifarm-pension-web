@@ -1,7 +1,7 @@
 import { createSupabaseAdmin } from "@/lib/supabase/admin";
 
 export const metadata = {
-  title: "제작 요금 — 스토리팜",
+  title: "제작 요금",
   description: "라이트 150만 / 스탠다드 300만 / 프리미엄 500만. 운영자가 직접 만드는 펜션 홈페이지 제작비.",
 };
 
@@ -32,7 +32,7 @@ export default async function PricingPage() {
             3가지 티어, 한 명의 운영자가 다 만듭니다.
           </h1>
           <p className="mt-3 max-w-2xl text-ink-700">
-            외주 에이전시가 아닙니다. 달팽이아지트를 운영하면서 제가 직접 쓰고
+            외주 에이전시가 아닙니다. 제 펜션을 직접 운영하면서 쓰고
             검증한 템플릿 5종 중 하나를 고르시면, 저희가 데이터를 집어넣고 2~3주
             안에 납품합니다.
           </p>
