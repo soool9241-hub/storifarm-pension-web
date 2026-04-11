@@ -1,20 +1,21 @@
 import CustomerJourney from "@/components/funnel/CustomerJourney";
+import RevenueChart from "@/components/RevenueChart";
 
 export default function Home() {
   return (
     <>
       {/* HERO — 운영자의 편지 */}
       <section className="border-b border-ink-100">
-        <div className="container-narrow py-16 text-center sm:py-24">
+        <div className="container-narrow py-12 text-center sm:py-24">
           <div className="label">펜션 사장님께 드리는 편지</div>
 
-          <h1 className="mt-3 text-[22px] font-bold leading-snug text-ink-900 sm:text-[32px]">
+          <h1 className="mt-3 text-[20px] font-bold leading-snug text-ink-900 sm:text-[32px]">
             00평 펜션 7년간 매출 7배 성장
             <br />
             펜션 운영중인 펜션지기 입니다!
           </h1>
 
-          <div className="mx-auto mt-10 max-w-xl space-y-5 text-left text-[15px] leading-[1.9] text-ink-700 sm:text-base">
+          <div className="mx-auto mt-8 max-w-xl space-y-4 text-left text-[14px] leading-[1.85] text-ink-700 sm:mt-10 sm:space-y-5 sm:text-base sm:leading-[1.9]">
             <p>
               처음엔 저도 홈페이지 같은 건 만들 생각도 없었어요. 에어비앤비에
               올리고, 야놀자에 올리고, 전화 오면 받고. 그게 전부였습니다.
@@ -54,14 +55,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-xl border-t border-ink-100 pt-6 text-center">
-            <div className="text-sm text-ink-500">전북 완주 소양면에서</div>
-            <div className="mt-1 text-base font-semibold text-ink-900">
+          <div className="mx-auto mt-10 max-w-xl border-t border-ink-100 pt-5 text-center sm:mt-12 sm:pt-6">
+            <div className="text-xs text-ink-500 sm:text-sm">이름 없이 편지를 드립니다</div>
+            <div className="mt-1 text-sm font-semibold text-ink-900 sm:text-base">
               7년차 펜션 운영자 드림
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center">
             <a href="/diagnostic" className="btn-primary w-full sm:w-auto">
               먼저 무료 진단부터 받아보기 →
             </a>
@@ -74,17 +75,44 @@ export default function Home() {
 
       {/* WHY NOT AN AGENCY */}
       <section className="border-b border-ink-100">
-        <div className="container-wide py-16">
-          <h2 className="text-2xl font-bold sm:text-3xl">
+        <div className="container-wide py-12 sm:py-16">
+          <h2 className="text-xl font-bold leading-snug sm:text-3xl">
             광고대행사는 펜션을 운영해본 적이 없습니다.
           </h2>
-          <p className="mt-3 max-w-2xl text-ink-700">
+          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-700 sm:text-base">
             부재중 전화 한 통이 예약 한 건이라는 걸, 체크인 전날 문자 한 통이
             리뷰 점수를 올린다는 걸, 네이버 키워드 37개 중 실제 전환되는 건 5개
             뿐이라는 걸 — 직접 운영해보지 않으면 모릅니다.
           </p>
 
-          <div className="mt-8 overflow-hidden rounded-2xl border border-ink-100">
+          {/* Mobile: stacked compare cards */}
+          <div className="mt-6 space-y-3 sm:hidden">
+            {[
+              ["펜션 운영 경험", "없음", "7년 · 7,000명 숙박"],
+              ["예약 데이터 분석", "없음", "실전 304건 기반"],
+              ["네이버 광고 운영", "별도 대행사", "직접 운영 (5그룹 37키워드)"],
+              ["SMS 자동화", "없음", "포함 · Solapi 연동"],
+              ["모객 전략 컨설팅", "없음", "데이터 기반 맞춤 전략"],
+              ["제작 후 책임", "유지보수 별도", "운영자 직접 1:1 지원"],
+            ].map(([k, a, b]) => (
+              <div key={k} className="rounded-2xl border border-ink-100 p-4">
+                <div className="text-[13px] font-semibold text-ink-900">{k}</div>
+                <div className="mt-2 grid grid-cols-2 gap-2 text-[12px]">
+                  <div className="rounded-lg bg-ink-100/40 p-2">
+                    <div className="text-[10px] text-ink-500">일반 에이전시</div>
+                    <div className="mt-0.5 text-ink-500">{a}</div>
+                  </div>
+                  <div className="rounded-lg bg-brand-50 p-2">
+                    <div className="text-[10px] text-brand-700">운영자 직접</div>
+                    <div className="mt-0.5 font-semibold text-brand-900">{b}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: table */}
+          <div className="mt-8 hidden overflow-hidden rounded-2xl border border-ink-100 sm:block">
             <table className="w-full text-sm">
               <thead className="bg-ink-100/40 text-ink-700">
                 <tr>
@@ -116,19 +144,19 @@ export default function Home() {
 
       {/* PRODUCTS — 소비자가 고를 수 있는 상품 */}
       <section className="border-b border-ink-100">
-        <div className="container-wide py-16 sm:py-20">
+        <div className="container-wide py-12 sm:py-20">
           <div className="mx-auto max-w-2xl text-center">
             <div className="label">사장님이 고를 수 있는 4가지</div>
-            <h2 className="mt-2 text-2xl font-bold leading-snug text-ink-900 sm:text-3xl">
+            <h2 className="mt-2 text-xl font-bold leading-snug text-ink-900 sm:text-3xl">
               필요한 것만 고르시면 됩니다
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-ink-500 sm:text-base">
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-500 sm:text-base">
               전부 다 하실 필요 없어요. <b>모든 건 무료 진단에서 시작</b>합니다.
               사장님 펜션 상태부터 본 다음, 4가지 중 필요한 것만 골라서 가시면 됩니다.
             </p>
           </div>
 
-          <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">
+          <div className="mx-auto mt-8 grid max-w-4xl gap-3 sm:mt-12 sm:gap-4 sm:grid-cols-2">
             {[
               {
                 tag: "제작",
@@ -159,16 +187,16 @@ export default function Home() {
                 fits: "내 지역에서 이 사업을 직접 하고 싶은 분",
               },
             ].map((p) => (
-              <div key={p.title} className="card flex flex-col p-6 text-left">
+              <div key={p.title} className="card flex flex-col p-5 text-left sm:p-6">
                 <div className="inline-flex w-fit items-center rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-semibold text-brand-700">
                   {p.tag}
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-ink-900 sm:text-xl">
+                <h3 className="mt-3 text-base font-bold text-ink-900 sm:text-xl">
                   {p.title}
                 </h3>
-                <div className="mt-1 text-xs font-medium text-brand-700">{p.price}</div>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700">{p.body}</p>
-                <div className="mt-4 border-t border-ink-100 pt-3 text-[12px] text-ink-500">
+                <div className="mt-1 text-[11px] font-medium text-brand-700 sm:text-xs">{p.price}</div>
+                <p className="mt-3 text-[13px] leading-relaxed text-ink-700 sm:text-sm">{p.body}</p>
+                <div className="mt-4 border-t border-ink-100 pt-3 text-[11px] text-ink-500 sm:text-[12px]">
                   <b className="text-ink-700">이런 분께:</b> {p.fits}
                 </div>
               </div>
@@ -194,14 +222,14 @@ export default function Home() {
 
       {/* CUSTOMER JOURNEY */}
       <section className="border-b border-ink-100">
-        <div className="container-narrow py-20 sm:py-24">
-          <div className="mb-12 max-w-xl">
+        <div className="container-narrow py-12 sm:py-24">
+          <div className="mb-8 max-w-xl sm:mb-12">
             <div className="label">사장님의 여정</div>
-            <h2 className="mt-2 text-2xl font-bold leading-snug text-ink-900 sm:text-3xl">
+            <h2 className="mt-2 text-xl font-bold leading-snug text-ink-900 sm:text-3xl">
               진단부터 운영까지, <br className="sm:hidden" />
               같이 갑니다.
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-ink-500">
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-500 sm:text-sm">
               한 번에 다 하실 필요 없어요. 사장님 상황에 맞는 단계부터 시작하시면
               됩니다. 억지로 제작 의뢰할 필요도 없고요.
             </p>
@@ -210,45 +238,37 @@ export default function Home() {
         </div>
       </section>
 
-      {/* RESULTS */}
+      {/* RESULTS — Chart */}
       <section className="border-b border-ink-100">
-        <div className="container-wide py-16">
-          <h2 className="text-2xl font-bold sm:text-3xl">7년간 매출 7배 성장</h2>
-          <p className="mt-3 text-ink-700">
-            시스템을 만들면 매출이 따라옵니다. 광고비가 아니라 구조가 답입니다.
-          </p>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="card p-6">
-              <div className="label">초기</div>
-              <div className="mt-1 text-3xl font-bold">1,210만원</div>
-              <div className="mt-1 text-sm text-ink-500">예약 16건 · OTA 의존</div>
-            </div>
-            <div className="card p-6 ring-2 ring-brand-500">
-              <div className="label text-brand-700">현재</div>
-              <div className="mt-1 text-3xl font-bold text-brand-900">8,248만원</div>
-              <div className="mt-1 text-sm text-brand-700">예약 94건 · 자체 예약 58%</div>
-              <div className="mt-2 inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-semibold text-brand-700">
-                7배 성장
-              </div>
-            </div>
+        <div className="container-wide py-12 sm:py-16">
+          <div className="max-w-2xl">
+            <div className="label">실제 성장 그래프</div>
+            <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
+              7년간 매출 7배 성장
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-ink-700 sm:text-base">
+              시스템을 만들면 매출이 따라옵니다. 광고비가 아니라 구조가 답입니다.
+            </p>
+          </div>
+          <div className="mt-8">
+            <RevenueChart />
           </div>
         </div>
       </section>
 
       {/* CTA */}
       <section className="bg-brand-900 text-white">
-        <div className="container-wide py-16 text-center">
-          <h2 className="text-2xl font-bold sm:text-3xl">
+        <div className="container-wide py-12 text-center sm:py-16">
+          <h2 className="text-xl font-bold leading-snug sm:text-3xl">
             먼저 사장님 펜션의 온라인 상태부터 봐드릴게요
           </h2>
-          <p className="mx-auto mt-3 max-w-xl text-sm text-white/80">
+          <p className="mx-auto mt-3 max-w-xl text-[13px] leading-relaxed text-white/80 sm:text-sm">
             3분이면 끝납니다. 20개 항목 체크 → 맞춤 리포트 자동 발송.
             제작 의뢰 여부는 그 다음에 판단하셔도 됩니다.
           </p>
           <a
             href="/diagnostic"
-            className="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-brand-900 transition hover:bg-brand-50"
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[15px] font-semibold text-brand-900 shadow-xl shadow-black/20 transition hover:bg-brand-50 sm:mt-8 sm:w-auto"
           >
             무료 온라인 진단 시작 →
           </a>
