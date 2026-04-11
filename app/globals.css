@@ -15,10 +15,10 @@
   .container-narrow { @apply mx-auto w-full max-w-[680px] px-5; }
   .container-wide { @apply mx-auto w-full max-w-[1080px] px-5; }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-700 px-5 py-3 text-sm font-medium text-white transition hover:bg-brand-900;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-700 px-6 py-3.5 text-[15px] font-semibold text-white shadow-lg shadow-brand-900/20 ring-1 ring-brand-900/10 transition hover:bg-brand-900 hover:shadow-xl hover:shadow-brand-900/30;
   }
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-ink-100 bg-white px-5 py-3 text-sm font-medium text-ink-900 transition hover:bg-ink-100/40;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-brand-700 bg-white px-6 py-3.5 text-[15px] font-semibold text-brand-900 transition hover:bg-brand-50;
   }
   .card { @apply rounded-2xl bg-white shadow-card ring-1 ring-ink-100; }
   .label { @apply text-xs font-medium text-ink-500; }
