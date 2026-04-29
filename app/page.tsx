@@ -103,71 +103,113 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WHY NOT AN AGENCY */}
+      {/* TIER FEATURE MATRIX */}
       <section className="border-b border-ink-100">
         <div className="container-wide py-12 sm:py-16">
-          <h2 className="text-xl font-bold leading-snug sm:text-3xl">
-            광고대행사는 공간대관 사업을 해본 적이 없습니다.
-          </h2>
-          <p className="mt-3 max-w-2xl text-sm leading-relaxed text-ink-700 sm:text-base">
-            부재중 전화 한 통이 예약 한 건이라는 걸, 체크인 전날 문자 한 통이
-            리뷰 점수를 올린다는 걸, 네이버 키워드 37개 중 실제 전환되는 건 5개
-            뿐이라는 걸 - 직접 운영해보지 않으면 모릅니다.
-          </p>
+          <div className="max-w-2xl">
+            <div className="label">요금제별 포함 내용</div>
+            <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
+              월 39 / 69 / 99 — 어떤 게 들어 있나요?
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-ink-700 sm:text-base">
+              제 펜션을 7년 운영하면서 진짜 필요한 것만 추렸습니다. 부재중 전화 한 통이
+              예약 한 건이라는 걸, 체크인 전날 문자 한 통이 리뷰를 올린다는 걸 — 직접
+              운영해보지 않으면 모르는 것들이 다 들어 있어요.
+            </p>
+          </div>
 
-          {/* Mobile: stacked compare cards */}
-          <div className="mt-6 space-y-3 sm:hidden">
+          {/* Tier price headers */}
+          <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
             {[
-              ["공간대관 운영 경험", "없음", "공방 10년 · 펜션 7년 / 7,000명 이용"],
-              ["예약 데이터 분석", "없음", "실전 304건 기반"],
-              ["네이버 광고 운영", "별도 대행사", "직접 운영 (5그룹 37키워드)"],
-              ["SMS 자동화", "없음", "포함 / Solapi 연동"],
-              ["모객 전략 컨설팅", "없음", "데이터 기반 맞춤 전략"],
-              ["제작 후 책임", "유지보수 별도", "운영자 직접 1:1 지원"],
-            ].map(([k, a, b]) => (
-              <div key={k} className="rounded-2xl border border-ink-100 p-4">
-                <div className="text-[13px] font-semibold text-ink-900">{k}</div>
-                <div className="mt-2 grid grid-cols-2 gap-2 text-[12px]">
-                  <div className="rounded-lg bg-ink-100/40 p-2">
-                    <div className="text-[10px] text-ink-500">일반 에이전시</div>
-                    <div className="mt-0.5 text-ink-500">{a}</div>
+              { name: "라이트", price: 39, note: "단기 / 월 결제", promo: "선착순 5팀 29만" },
+              { name: "스탠다드", price: 69, note: "1년 약정", highlight: true },
+              { name: "프리미엄", price: 99, note: "1년 약정" },
+            ].map((t) => (
+              <div
+                key={t.name}
+                className={`rounded-2xl p-3 text-center sm:p-5 ${
+                  t.highlight ? "bg-brand-900 text-white" : "bg-white text-ink-900 ring-1 ring-ink-100"
+                }`}
+              >
+                {t.highlight && (
+                  <div className="mb-1 inline-flex items-center rounded-full bg-white px-1.5 py-0.5 text-[9px] font-bold text-brand-900 sm:text-[10px]">
+                    가장 많이 선택
                   </div>
-                  <div className="rounded-lg bg-brand-50 p-2">
-                    <div className="text-[10px] text-brand-700">운영자 직접</div>
-                    <div className="mt-0.5 font-semibold text-brand-900">{b}</div>
-                  </div>
+                )}
+                <div className={`text-[11px] font-medium sm:text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
+                  {t.name}
                 </div>
+                <div className={`mt-0.5 text-base font-bold sm:text-2xl ${t.highlight ? "" : "text-brand-900"}`}>
+                  월 {t.price}만
+                </div>
+                <div className={`text-[10px] sm:text-[11px] ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
+                  {t.note}
+                </div>
+                {t.promo && (
+                  <div className="mt-1 inline-flex items-center rounded-full bg-yellow-300 px-1.5 py-0.5 text-[9px] font-bold text-brand-900 sm:text-[10px]">
+                    🎁 {t.promo}
+                  </div>
+                )}
               </div>
             ))}
           </div>
 
-          {/* Desktop: table */}
-          <div className="mt-8 hidden overflow-hidden rounded-2xl border border-ink-100 sm:block">
-            <table className="w-full text-sm">
-              <thead className="bg-ink-100/40 text-ink-700">
-                <tr>
-                  <th className="p-3 text-left font-medium">항목</th>
-                  <th className="p-3 text-left font-medium">일반 웹에이전시</th>
-                  <th className="p-3 text-left font-medium text-brand-700">운영자 직접 제작</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-ink-100">
+          {/* Feature matrix */}
+          <div className="mt-4 overflow-hidden rounded-2xl border border-ink-100 bg-white">
+            <table className="w-full text-[12px] sm:text-sm">
+              <tbody>
                 {[
-                  ["공간대관 운영 경험", "없음", "공방 10년 · 펜션 7년 / 7,000명 이용"],
-                  ["예약 데이터 분석", "없음", "실전 304건 기반"],
-                  ["네이버 광고 운영", "별도 대행사", "직접 운영 (5그룹 37키워드)"],
-                  ["SMS 자동화", "없음", "포함 / Solapi 연동"],
-                  ["모객 전략 컨설팅", "없음", "데이터 기반 맞춤 전략"],
-                  ["제작 후 책임", "유지보수 별도", "운영자 직접 1:1 지원"],
-                ].map(([k, a, b]) => (
-                  <tr key={k}>
-                    <td className="p-3 font-medium">{k}</td>
-                    <td className="p-3 text-ink-500">{a}</td>
-                    <td className="p-3 font-medium text-brand-700">{b}</td>
+                  { f: "홈페이지 제작", l: "단일 페이지", s: "풀 커스텀", p: "풀 커스텀 + 다지점" },
+                  { f: "도메인 + 호스팅", l: "✓", s: "✓", p: "✓" },
+                  { f: "휴대폰 반응형", l: "✓", s: "✓", p: "✓" },
+                  { f: "예약 시스템", l: "문의 폼형", s: "달력형 실시간", p: "달력형 + 다지점 통합" },
+                  { f: "결제 연동", l: "—", s: "✓", p: "✓" },
+                  { f: "SMS 자동 발송", l: "1종 (예약확인)", s: "5종", p: "5종 + 알림톡" },
+                  { f: "네이버 플레이스", l: "DIY 가이드", s: "직접 등록", p: "등록 + 최적화" },
+                  { f: "네이버 광고", l: "—", s: "37 키워드 세팅", p: "37 키워드 + 매월 최적화" },
+                  { f: "방문자 대시보드", l: "—", s: "GA4 기본", p: "GA4 + 작전회의" },
+                  { f: "콘텐츠 업데이트", l: "월 1회", s: "월 2회", p: "월 2회 + 콘텐츠 제작 2건" },
+                  { f: "다지점 통합 관리", l: "—", s: "—", p: "✓" },
+                  { f: "광고 컨설팅 (1:1)", l: "—", s: "—", p: "매월 1회" },
+                  { f: "매월 데이터 리포트", l: "—", s: "—", p: "✓" },
+                  { f: "긴급 대응", l: "영업일", s: "영업일", p: "24시간 핫라인" },
+                ].map((row, i) => (
+                  <tr
+                    key={row.f}
+                    className={`${i !== 0 ? "border-t border-ink-100" : ""} ${
+                      i % 2 === 0 ? "bg-white" : "bg-ink-100/20"
+                    }`}
+                  >
+                    <td className="px-3 py-2.5 font-medium text-ink-900 sm:px-4 sm:py-3">{row.f}</td>
+                    <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.l}</td>
+                    <td className="px-2 py-2.5 text-center font-semibold text-brand-900 sm:px-4 sm:py-3">{row.s}</td>
+                    <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.p}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
+          </div>
+
+          {/* CTA bar */}
+          <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
+            <a
+              href="/contact?tier=light"
+              className="rounded-xl border border-ink-100 bg-white px-3 py-3 text-center text-[12px] font-semibold text-ink-700 transition hover:bg-ink-100/40 sm:text-sm"
+            >
+              라이트 상담
+            </a>
+            <a
+              href="/contact?tier=standard"
+              className="rounded-xl bg-brand-900 px-3 py-3 text-center text-[12px] font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:bg-brand-700 sm:text-sm"
+            >
+              스탠다드 상담
+            </a>
+            <a
+              href="/contact?tier=premium"
+              className="rounded-xl border border-ink-100 bg-white px-3 py-3 text-center text-[12px] font-semibold text-ink-700 transition hover:bg-ink-100/40 sm:text-sm"
+            >
+              프리미엄 상담
+            </a>
           </div>
         </div>
       </section>
