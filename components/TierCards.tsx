@@ -378,38 +378,30 @@ export default function TierCards() {
                 ))}
               </ul>
 
-              {/* 🎯 노출 관리 섹션 — 카드에 강조 노출 (자세히 보기 안 눌러도 보임) */}
+              {/* 🎯 노출 관리 1줄 요약 칩 (자세히 보기 모달에서 풀 내역) */}
               {(() => {
-                const featured = t.sections.find((s) => s.title === "노출 관리");
-                if (!featured) return null;
+                const summary: Record<TierKey, string> = {
+                  light: "키워드 5개 · 광고비 월 10만 포함 · 플레이스 가이드",
+                  standard: "키워드 10개 · 광고비 월 15만 포함 · 플레이스 직접 등록 · GA4 대시보드",
+                  premium:
+                    "키워드 20개 · 광고비 월 20만 포함(증액 협의) · 플레이스 최적화 · GA4 작전회의 · 1:1 컨설팅 매월",
+                };
                 return (
                   <div
-                    className={`mt-5 rounded-2xl p-4 sm:p-5 ${
+                    className={`mt-5 rounded-2xl px-4 py-3 text-[12px] leading-relaxed sm:text-[12.5px] ${
                       t.highlight
-                        ? "bg-white/10 ring-1 ring-yellow-300/40"
-                        : "bg-brand-50 ring-1 ring-brand-100"
+                        ? "bg-white/10 ring-1 ring-yellow-300/40 text-white/90"
+                        : "bg-brand-50 ring-1 ring-brand-100 text-ink-800"
                     }`}
                   >
                     <div
-                      className={`flex items-center gap-2 text-[13px] font-bold ${
+                      className={`mb-1 text-[11px] font-bold ${
                         t.highlight ? "text-yellow-300" : "text-brand-900"
                       }`}
                     >
-                      <span>{featured.icon}</span>
-                      <span>{featured.title}</span>
+                      🎯 노출 관리
                     </div>
-                    <ul className="mt-2.5 space-y-1.5 text-[12px] leading-relaxed sm:text-[12.5px]">
-                      {featured.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2">
-                          <span
-                            className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${
-                              t.highlight ? "bg-yellow-300" : "bg-brand-500"
-                            }`}
-                          />
-                          <span className={t.highlight ? "text-white/90" : "text-ink-800"}>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div>{summary[key]}</div>
                   </div>
                 );
               })()}
