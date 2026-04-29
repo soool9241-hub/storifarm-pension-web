@@ -1,6 +1,7 @@
 import CustomerJourney from "@/components/funnel/CustomerJourney";
 import RevenueChart from "@/components/RevenueChart";
 import SavingsCalculator from "@/components/SavingsCalculator";
+import TierCards from "@/components/TierCards";
 
 export default function Home() {
   return (
@@ -103,139 +104,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TIER FEATURE MATRIX */}
-      <section className="border-b border-ink-100">
+      {/* TIER CARDS — 심플 카드 + 자세히 보기 모달 */}
+      <section className="border-b border-ink-100 bg-gradient-to-b from-white to-brand-50/30">
         <div className="container-wide py-12 sm:py-16">
-          <div className="max-w-2xl">
-            <div className="label">요금제별 포함 내용</div>
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="label">요금제</div>
             <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
-              월 39 / 69 / 99 — 어떤 게 들어 있나요?
+              월 39 / 69 / 99 — 사장님께 맞는 것만 고르세요
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-ink-700 sm:text-base">
-              제 펜션을 7년 운영하면서 진짜 필요한 것만 추렸습니다. 부재중 전화 한 통이
-              예약 한 건이라는 걸, 체크인 전날 문자 한 통이 리뷰를 올린다는 걸 — 직접
-              운영해보지 않으면 모르는 것들이 다 들어 있어요.
+              7년 운영하면서 진짜 필요한 것만 3가지로 추렸습니다.
+              <br className="hidden sm:block" />
+              포함 항목은 카드 아래 <b>자세히 보기</b>로 확인하실 수 있어요.
             </p>
           </div>
 
-          {/* Tier price headers */}
-          <div className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
-            {[
-              { name: "라이트", price: 39, note: "단기 / 월 결제", promo: "선착순 5팀 29만" },
-              { name: "스탠다드", price: 69, note: "1년 약정", highlight: true },
-              { name: "프리미엄", price: 99, note: "1년 약정" },
-            ].map((t) => (
-              <div
-                key={t.name}
-                className={`rounded-2xl p-3 text-center sm:p-5 ${
-                  t.highlight ? "bg-brand-900 text-white" : "bg-white text-ink-900 ring-1 ring-ink-100"
-                }`}
-              >
-                {t.highlight && (
-                  <div className="mb-1 inline-flex items-center rounded-full bg-white px-1.5 py-0.5 text-[9px] font-bold text-brand-900 sm:text-[10px]">
-                    가장 많이 선택
-                  </div>
-                )}
-                <div className={`text-[11px] font-medium sm:text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
-                  {t.name}
-                </div>
-                <div className={`mt-0.5 text-base font-bold sm:text-2xl ${t.highlight ? "" : "text-brand-900"}`}>
-                  월 {t.price}만
-                </div>
-                <div className={`text-[10px] sm:text-[11px] ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
-                  {t.note}
-                </div>
-                {t.promo && (
-                  <div className="mt-1 inline-flex items-center rounded-full bg-yellow-300 px-1.5 py-0.5 text-[9px] font-bold text-brand-900 sm:text-[10px]">
-                    🎁 {t.promo}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Feature matrix — grouped by 5 value pillars */}
-          <div className="mt-4 overflow-hidden rounded-2xl border border-ink-100 bg-white">
-            <table className="w-full text-[12px] sm:text-sm">
-              <tbody>
-                {[
-                  // 섹션 1: 공간 운영 자동화 홈페이지 구축
-                  { section: "🏠 공간 운영 자동화 홈페이지 구축" },
-                  { f: "홈페이지 형태", l: "단일 페이지", s: "풀 커스텀", p: "풀 커스텀 + 다지점" },
-                  { f: "도메인 + 호스팅", l: "✓", s: "✓", p: "✓" },
-                  { f: "휴대폰 반응형", l: "✓", s: "✓", p: "✓" },
-                  { f: "예약 시스템", l: "문의 폼형", s: "달력형 실시간", p: "달력형 + 다지점 통합" },
-                  { f: "결제 연동", l: "—", s: "✓", p: "✓" },
-                  { f: "SMS / 알림톡 자동 발송", l: "1종 (예약확인)", s: "5종", p: "5종 + 알림톡 통합" },
-
-                  // 섹션 2: 전환되는 키워드 셋팅
-                  { section: "🎯 전환되는 키워드 셋팅" },
-                  { f: "네이버 광고 키워드", l: "기본 5개", s: "37 키워드 세팅", p: "37 키워드 + 매월 최적화" },
-                  { f: "네이버 플레이스", l: "DIY 등록 가이드", s: "직접 등록", p: "등록 + 최적화 컨설팅" },
-                  { f: "방문자·전환 대시보드", l: "—", s: "GA4 기본", p: "GA4 + 작전회의" },
-                  { f: "광고 1:1 컨설팅", l: "—", s: "—", p: "매월 1회" },
-
-                  // 섹션 3: 운영관리 교육
-                  { section: "📚 운영관리 교육" },
-                  { f: "셀프 운영 가이드북", l: "✓", s: "✓", p: "✓" },
-                  { f: "1:1 운영 코칭", l: "—", s: "1회 (1시간)", p: "매월 1회" },
-                  { f: "콘텐츠 업데이트", l: "월 1회", s: "월 2회", p: "월 2회 + 콘텐츠 제작 2건" },
-                  { f: "매월 데이터 리포트", l: "—", s: "—", p: "✓" },
-
-                  // 섹션 4: 지역 파트너십 제휴
-                  { section: "🤝 지역 파트너십 제휴" },
-                  { f: "지역 1인 독점 우선권", l: "—", s: "우선 안내", p: "✓ (즉시 등록)" },
-                  { f: "파트너 레퍼럴 수익", l: "—", s: "건당 보상", p: "건당 + 월 분배" },
-                  { f: "지역 사업주 네트워크", l: "—", s: "분기 모임", p: "월간 비공개 모임" },
-
-                  // 섹션 5: 평생 업데이트 시스템 라이센스
-                  { section: "♾ 평생 업데이트 시스템 라이센스 구독" },
-                  { f: "시스템 자동 업데이트 (매일)", l: "✓", s: "✓", p: "✓" },
-                  { f: "신규 기능 우선 적용", l: "—", s: "✓", p: "✓ (베타 우선)" },
-                  { f: "긴급 대응", l: "영업일", s: "영업일", p: "24시간 핫라인" },
-                ].map((row, i) => {
-                  if ("section" in row) {
-                    return (
-                      <tr key={row.section} className="bg-brand-50">
-                        <td colSpan={4} className="px-3 py-2.5 text-[12px] font-bold text-brand-900 sm:px-4 sm:py-3 sm:text-sm">
-                          {row.section}
-                        </td>
-                      </tr>
-                    );
-                  }
-                  return (
-                    <tr key={`${row.f}-${i}`} className="border-t border-ink-100 bg-white">
-                      <td className="px-3 py-2.5 font-medium text-ink-900 sm:px-4 sm:py-3">{row.f}</td>
-                      <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.l}</td>
-                      <td className="px-2 py-2.5 text-center font-semibold text-brand-900 sm:px-4 sm:py-3">{row.s}</td>
-                      <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.p}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-
-          {/* CTA bar */}
-          <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
-            <a
-              href="/contact?tier=light"
-              className="rounded-xl border border-ink-100 bg-white px-3 py-3 text-center text-[12px] font-semibold text-ink-700 transition hover:bg-ink-100/40 sm:text-sm"
-            >
-              라이트 상담
-            </a>
-            <a
-              href="/contact?tier=standard"
-              className="rounded-xl bg-brand-900 px-3 py-3 text-center text-[12px] font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:bg-brand-700 sm:text-sm"
-            >
-              스탠다드 상담
-            </a>
-            <a
-              href="/contact?tier=premium"
-              className="rounded-xl border border-ink-100 bg-white px-3 py-3 text-center text-[12px] font-semibold text-ink-700 transition hover:bg-ink-100/40 sm:text-sm"
-            >
-              프리미엄 상담
-            </a>
+          <div className="mt-10">
+            <TierCards />
           </div>
         </div>
       </section>
