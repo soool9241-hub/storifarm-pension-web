@@ -19,7 +19,7 @@ const TIERS: Record<
   }
 > = {
   light: {
-    name: "시작",
+    name: "시작 패키지",
     tagline: "기본 구축",
     price: 39,
     note: "단기 / 월 결제",
@@ -62,7 +62,7 @@ const TIERS: Record<
     ],
   },
   standard: {
-    name: "성장",
+    name: "성장 패키지",
     tagline: "플랫폼 + 홍보",
     price: 69,
     note: "1년 약정",
@@ -123,7 +123,7 @@ const TIERS: Record<
     ],
   },
   premium: {
-    name: "완성",
+    name: "완성 패키지",
     tagline: "플랫폼 + 홍보 + 예약분석",
     price: 99,
     note: "1년 약정",
@@ -226,7 +226,7 @@ export default function TierCards() {
               <div className={`text-xs font-medium ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
                 {t.tagline}
               </div>
-              <h3 className="mt-1 text-3xl font-bold">{t.name}</h3>
+              <h3 className="mt-1 text-2xl font-bold sm:text-[26px]">{t.name}</h3>
               <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
                 {t.summary}
               </div>

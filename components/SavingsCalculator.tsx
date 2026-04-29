@@ -15,7 +15,7 @@ const NEW_REVENUE_RATE = 0.15;
 
 const TIERS = {
   light: {
-    name: "시작",
+    name: "시작 패키지",
     tagline: "기본 구축",
     monthly: 39,
     promo: 29,
@@ -25,7 +25,7 @@ const TIERS = {
     desc: "지금 막 시작하시는 사장님 — 도메인 + 예약 받을 페이지 + 기본 SMS만 깔끔하게 세팅. 부담 없이 월별로 쓰면서 효과부터 보세요.",
   },
   standard: {
-    name: "성장",
+    name: "성장 패키지",
     tagline: "플랫폼 + 홍보",
     monthly: 69,
     note: "1년 약정",
@@ -33,7 +33,7 @@ const TIERS = {
     desc: "사장님 규모에 가장 잘 맞는 패키지. 홈페이지 + 예약 자동화 + SMS + 네이버 광고 37키워드까지 통째로 — 1년 안에 충분히 회수됩니다.",
   },
   premium: {
-    name: "완성",
+    name: "완성 패키지",
     tagline: "플랫폼 + 홍보 + 예약분석",
     monthly: 99,
     note: "1년 약정",

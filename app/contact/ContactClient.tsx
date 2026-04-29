@@ -83,7 +83,7 @@ export default function ContactClient({
                 {t === "light" ? "기본 구축" : t === "standard" ? "플랫폼 + 홍보" : "+예약분석"}
               </div>
               <div className="font-semibold">
-                {t === "light" ? "시작" : t === "standard" ? "성장" : "완성"}
+                {t === "light" ? "시작 패키지" : t === "standard" ? "성장 패키지" : "완성 패키지"}
               </div>
               <div className="mt-0.5 text-[11px] text-ink-500">
                 월 {t === "light" ? "39" : t === "standard" ? "69" : "99"}만

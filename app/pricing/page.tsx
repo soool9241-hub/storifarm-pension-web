@@ -7,7 +7,7 @@ export const metadata = {
 const TIERS = [
   {
     tier: "light",
-    name: "시작",
+    name: "시작 패키지",
     tagline: "기본 구축",
     monthly: 39,
     promoNote: "선착순 5팀 한정 월 29만원 (10만원 할인)",
@@ -23,7 +23,7 @@ const TIERS = [
   },
   {
     tier: "standard",
-    name: "성장",
+    name: "성장 패키지",
     tagline: "플랫폼 + 홍보",
     monthly: 69,
     note: "1년 약정",
@@ -40,7 +40,7 @@ const TIERS = [
   },
   {
     tier: "premium",
-    name: "완성",
+    name: "완성 패키지",
     tagline: "플랫폼 + 홍보 + 예약분석",
     monthly: 99,
     note: "1년 약정",
