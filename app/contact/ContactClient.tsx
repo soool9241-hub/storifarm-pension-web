@@ -66,23 +66,33 @@ export default function ContactClient({
       </Row>
 
       <div>
-        <div className="label mb-2">관심 Tier</div>
+        <div className="label mb-2">관심 패키지</div>
         <div className="grid grid-cols-3 gap-2">
           {(["light", "standard", "premium"] as Tier[]).map((t) => (
             <button
               type="button"
               key={t}
               onClick={() => setForm({ ...form, tier: t })}
-              className={`rounded-xl border px-3 py-2 text-sm transition ${
+              className={`rounded-xl border px-2 py-2 text-[12px] transition sm:px-3 sm:text-sm ${
                 form.tier === t
                   ? "border-brand-500 bg-brand-50 font-semibold text-brand-900"
                   : "border-ink-100 bg-white text-ink-700"
               }`}
             >
-              {t === "light" ? "라이트 150만" : t === "standard" ? "스탠다드 300만" : "프리미엄 500만"}
+              <div className="font-semibold">
+                {t === "light" ? "라이트" : t === "standard" ? "스탠다드" : "프리미엄"}
+              </div>
+              <div className="mt-0.5 text-[11px] text-ink-500">
+                월 {t === "light" ? "39" : t === "standard" ? "69" : "99"}만
+              </div>
             </button>
           ))}
         </div>
+        {form.tier === "light" && (
+          <div className="mt-2 rounded-lg bg-yellow-50 px-3 py-2 text-[11px] font-semibold text-yellow-900 sm:text-xs">
+            🎁 라이트는 선착순 5팀 한정 월 29만원 (10만원 할인) — 상담 시 잔여 자리 안내드립니다.
+          </div>
+        )}
       </div>
 
       <div>
@@ -123,11 +133,11 @@ export default function ContactClient({
       {error && <div className="rounded-lg bg-red-50 p-3 text-xs text-red-700">{error}</div>}
 
       <div className="rounded-xl border border-brand-200 bg-brand-50 p-4 text-xs leading-relaxed text-ink-800">
-        <div className="font-bold text-brand-900">결제는 100% 선수금 한 번에 받습니다</div>
+        <div className="font-bold text-brand-900">월 구독제로 운영됩니다</div>
         <p className="mt-1">
-          계약 후 제작비 전액을 한 번에 입금받고, 14~21일 내 납품을 책임집니다.
-          착수금/잔금 분할은 따로 두지 않습니다. 납품 지연 시 1일당 무상 유지보수
-          1일을 추가로 드리는 약속을 함께 적어두는 구조입니다.
+          홈페이지 제작 + 운영 시스템 + 매일 업데이트까지 월 구독료 한 번으로 묶어드립니다.
+          라이트는 단기 월 결제, 스탠다드·프리미엄은 1년 약정. 납품기간 14~21일,
+          납품 지연 1일당 무상 유지보수 1일을 추가로 드립니다.
         </p>
       </div>
 

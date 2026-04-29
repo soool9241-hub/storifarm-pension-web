@@ -16,7 +16,9 @@ const NEW_REVENUE_RATE = 0.15;
 const TIERS = {
   light: {
     name: "라이트",
-    monthly: 29,
+    monthly: 39,
+    promo: 29,
+    promoNote: "선착순 5팀 한정 월 29만",
     note: "단기 / 월 결제",
     href: "/contact?tier=light",
     desc: "지금 막 시작하시는 사장님 — 도메인 + 예약 받을 페이지 + 기본 SMS만 깔끔하게 세팅. 부담 없이 월별로 쓰면서 효과부터 보세요.",
@@ -225,6 +227,11 @@ export default function SavingsCalculator() {
               </div>
               <div className="text-xs text-brand-100">({TIERS[result.tier].note})</div>
             </div>
+            {result.tier === "light" && (
+              <div className="mt-2 inline-flex items-center rounded-full bg-yellow-300 px-3 py-1 text-[11px] font-bold text-brand-900 sm:text-xs">
+                🎁 선착순 5팀 한정 월 29만원 (10만원 할인)
+              </div>
+            )}
             <p className="mt-2 text-[12px] leading-relaxed text-brand-100 sm:text-sm">
               {TIERS[result.tier].desc}
             </p>
