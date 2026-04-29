@@ -108,14 +108,14 @@ export default function Home() {
       <section className="border-b border-ink-100 bg-gradient-to-b from-white to-brand-50/30">
         <div className="container-wide py-12 sm:py-16">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="label">요금제 비교</div>
+            <div className="label">3단계 시스템</div>
             <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
-              월 39 / 69 / 99 — 한눈에 비교해보세요
+              시작 → 성장 → 완성
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-ink-700 sm:text-base">
-              7년 운영하면서 진짜 필요한 것만 3가지로 추렸습니다.
+              7년 운영하면서 진짜 필요한 것만 3단계로 추렸습니다.
               <br className="hidden sm:block" />
-              5개 영역 × 3티어 — 무엇이 더 들어 있는지 색깔과 라벨로 한눈에 보세요.
+              <b>기본 구축 → 플랫폼+홍보 → 플랫폼+홍보+예약분석</b> — 카드의 <b>자세히 보기</b>로 포함 항목을 확인하세요.
             </p>
           </div>
 
@@ -164,7 +164,7 @@ export default function Home() {
                 tag: "제작",
                 title: "공간운영자동화 홈페이지 제작",
                 price: "150만 ~ 500만원 (1회)",
-                body: "라이트/스탠다드/프리미엄 3티어. 7년간 실전 검증한 템플릿 5종 중 하나를 고르시면 예약 시스템, SMS 자동화, 네이버 광고까지 14~21일 안에 세팅해드립니다.",
+                body: "시작/성장/완성 3단계. 7년간 실전 검증한 템플릿 5종 중 하나를 고르시면 예약 시스템, SMS 자동화, 네이버 광고까지 14~21일 안에 세팅해드립니다.",
                 fits: "홈페이지가 아예 없거나, OTA에만 의존 중인 공간대관 사업자",
               },
               {

@@ -79,8 +79,11 @@ export default function ContactClient({
                   : "border-ink-100 bg-white text-ink-700"
               }`}
             >
+              <div className="text-[10px] text-ink-500">
+                {t === "light" ? "기본 구축" : t === "standard" ? "플랫폼 + 홍보" : "+예약분석"}
+              </div>
               <div className="font-semibold">
-                {t === "light" ? "라이트" : t === "standard" ? "스탠다드" : "프리미엄"}
+                {t === "light" ? "시작" : t === "standard" ? "성장" : "완성"}
               </div>
               <div className="mt-0.5 text-[11px] text-ink-500">
                 월 {t === "light" ? "39" : t === "standard" ? "69" : "99"}만
@@ -90,7 +93,7 @@ export default function ContactClient({
         </div>
         {form.tier === "light" && (
           <div className="mt-2 rounded-lg bg-yellow-50 px-3 py-2 text-[11px] font-semibold text-yellow-900 sm:text-xs">
-            🎁 라이트는 선착순 5팀 한정 월 29만원 (10만원 할인) — 상담 시 잔여 자리 안내드립니다.
+            🎁 시작 패키지는 선착순 5팀 한정 월 29만원 (10만원 할인) — 상담 시 잔여 자리 안내드립니다.
           </div>
         )}
       </div>
@@ -136,7 +139,7 @@ export default function ContactClient({
         <div className="font-bold text-brand-900">월 구독제로 운영됩니다</div>
         <p className="mt-1">
           홈페이지 제작 + 운영 시스템 + 매일 업데이트까지 월 구독료 한 번으로 묶어드립니다.
-          라이트는 단기 월 결제, 스탠다드·프리미엄은 1년 약정. 납품기간 14~21일,
+          시작은 단기 월 결제, 성장·완성은 1년 약정. 납품기간 14~21일,
           납품 지연 1일당 무상 유지보수 1일을 추가로 드립니다.
         </p>
       </div>

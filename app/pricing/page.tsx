@@ -1,13 +1,14 @@
 export const metadata = {
-  title: "월 구독 요금 (라이트 39 / 스탠다드 69 / 프리미엄 99)",
+  title: "월 구독 요금 (시작 39 / 성장 69 / 완성 99)",
   description:
-    "공간운영자동화 올인원 서비스 월 구독료. 라이트 39만 (선착순 5팀 29만 할인) / 스탠다드 69만 / 프리미엄 99만. 홈페이지 + 예약 + SMS + 광고까지 한 번에.",
+    "공간운영자동화 올인원 서비스 월 구독료. 시작 39만 (선착순 5팀 29만 할인) / 성장 69만 / 완성 99만. 기본 구축 → 플랫폼+홍보 → 플랫폼+홍보+예약분석 단계별 구독.",
 };
 
 const TIERS = [
   {
     tier: "light",
-    name: "라이트",
+    name: "시작",
+    tagline: "기본 구축",
     monthly: 39,
     promoNote: "선착순 5팀 한정 월 29만원 (10만원 할인)",
     note: "단기 / 월 결제",
@@ -22,7 +23,8 @@ const TIERS = [
   },
   {
     tier: "standard",
-    name: "스탠다드",
+    name: "성장",
+    tagline: "플랫폼 + 홍보",
     monthly: 69,
     note: "1년 약정",
     highlight: true,
@@ -38,12 +40,13 @@ const TIERS = [
   },
   {
     tier: "premium",
-    name: "프리미엄",
+    name: "완성",
+    tagline: "플랫폼 + 홍보 + 예약분석",
     monthly: 99,
     note: "1년 약정",
     fits: "공간 3개 이상 / 월 매출 1,500만원+ / 다지점 운영 사장님",
     features: [
-      "스탠다드 모든 기능 +",
+      "성장 패키지 전체 +",
       "다지점 통합 관리 (공간별 페이지)",
       "광고 컨설팅 매월 1회 (1:1)",
       "콘텐츠 제작 지원 (월 2건)",
@@ -88,8 +91,9 @@ export default function PricingPage() {
                     가장 많이 선택
                   </div>
                 )}
-                <div className="label">{p.name}</div>
-                <div className="mt-1 flex items-baseline gap-1">
+                <div className="label">{p.tagline}</div>
+                <div className="mt-1 text-2xl font-bold text-ink-900">{p.name}</div>
+                <div className="mt-2 flex items-baseline gap-1">
                   <span className="text-3xl font-bold text-brand-900">월 {p.monthly}만</span>
                   <span className="text-sm text-ink-500">원 / {p.note}</span>
                 </div>
@@ -124,9 +128,9 @@ export default function PricingPage() {
           <h3 className="text-lg font-bold">왜 딱 3개로 나눠놨느냐면요</h3>
           <p className="mt-2 text-sm text-ink-700">
             공간 운영자가 진짜 필요한 건 3가지뿐이었습니다.
-            <b> 시작만 하시는 분(라이트)</b>,
-            <b> 본격적으로 자체 예약 늘릴 분(스탠다드)</b>,
-            <b> 여러 공간을 통합 운영할 분(프리미엄)</b>. 그 외 옵션은 사장님 돈 새는 길이라 다 빼드렸어요.
+            <b> 처음 홈페이지를 시작하시는 분(시작)</b>,
+            <b> 본격적으로 자체 예약을 늘리실 분(성장)</b>,
+            <b> 분석·다지점까지 완성하실 분(완성)</b>. 그 외 옵션은 사장님 돈 새는 길이라 다 빼드렸어요.
           </p>
         </div>
       </section>
@@ -154,7 +158,7 @@ export default function PricingPage() {
             <div className="font-bold text-brand-900">결제 안내 — 월 구독료 한 번으로 묶음</div>
             <p className="mt-2 leading-relaxed">
               홈페이지 제작 + 운영 시스템 + 매일 업데이트가 월 구독료에 모두 포함됩니다.
-              라이트는 부담 없이 월별로 시작 가능하고, 스탠다드·프리미엄은 1년 약정으로
+              시작은 부담 없이 월별로 시작 가능하고, 성장·완성은 1년 약정으로
               월 비용을 더 낮춘 구조입니다. 납품 지연 1일당 무상 유지보수 1일을 추가로
               드립니다.
             </p>

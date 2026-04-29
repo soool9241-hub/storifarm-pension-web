@@ -15,7 +15,8 @@ const NEW_REVENUE_RATE = 0.15;
 
 const TIERS = {
   light: {
-    name: "라이트",
+    name: "시작",
+    tagline: "기본 구축",
     monthly: 39,
     promo: 29,
     promoNote: "선착순 5팀 한정 월 29만",
@@ -24,14 +25,16 @@ const TIERS = {
     desc: "지금 막 시작하시는 사장님 — 도메인 + 예약 받을 페이지 + 기본 SMS만 깔끔하게 세팅. 부담 없이 월별로 쓰면서 효과부터 보세요.",
   },
   standard: {
-    name: "스탠다드",
+    name: "성장",
+    tagline: "플랫폼 + 홍보",
     monthly: 69,
     note: "1년 약정",
     href: "/contact?tier=standard",
     desc: "사장님 규모에 가장 잘 맞는 패키지. 홈페이지 + 예약 자동화 + SMS + 네이버 광고 37키워드까지 통째로 — 1년 안에 충분히 회수됩니다.",
   },
   premium: {
-    name: "프리미엄",
+    name: "완성",
+    tagline: "플랫폼 + 홍보 + 예약분석",
     monthly: 99,
     note: "1년 약정",
     href: "/contact?tier=premium",
@@ -220,12 +223,15 @@ export default function SavingsCalculator() {
             <div className="text-[11px] font-semibold tracking-wider text-brand-100 sm:text-xs">
               ❹ 사장님 규모에 가장 잘 맞는 패키지
             </div>
-            <div className="mt-1 flex flex-wrap items-baseline gap-2">
-              <div className="text-2xl font-bold sm:text-3xl">{TIERS[result.tier].name}</div>
-              <div className="text-base font-semibold text-brand-100">
-                월 {result.tierMonthly}만원
+            <div className="mt-1">
+              <div className="text-[11px] font-medium text-brand-100">{TIERS[result.tier].tagline}</div>
+              <div className="mt-0.5 flex flex-wrap items-baseline gap-2">
+                <div className="text-2xl font-bold sm:text-3xl">{TIERS[result.tier].name}</div>
+                <div className="text-base font-semibold text-brand-100">
+                  월 {result.tierMonthly}만원
+                </div>
+                <div className="text-xs text-brand-100">({TIERS[result.tier].note})</div>
               </div>
-              <div className="text-xs text-brand-100">({TIERS[result.tier].note})</div>
             </div>
             {result.tier === "light" && (
               <div className="mt-2 inline-flex items-center rounded-full bg-yellow-300 px-3 py-1 text-[11px] font-bold text-brand-900 sm:text-xs">
