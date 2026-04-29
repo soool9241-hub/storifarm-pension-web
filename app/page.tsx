@@ -78,8 +78,8 @@ export default function Home() {
             <a href="/diagnostic" className="btn-primary w-full sm:w-auto">
               먼저 무료 진단부터 받아보기 →
             </a>
-            <a href="/contact" className="btn-ghost w-full sm:w-auto">
-              바로 30분 상담 신청
+            <a href="/contact?tier=light" className="btn-ghost w-full sm:w-auto">
+              🎁 초기 혜택 받기 (선착순 5팀)
             </a>
           </div>
         </div>
