@@ -83,6 +83,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* RESULTS — 매출 성장 그래프 (HERO 바로 아래) */}
+      <section className="border-b border-ink-100 bg-gradient-to-b from-white to-brand-50/40">
+        <div className="container-wide py-12 sm:py-16">
+          <div className="max-w-2xl">
+            <div className="label">실제 성장 그래프</div>
+            <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
+              7년간 매출 7배 성장
+            </h2>
+            <p className="mt-2 text-sm leading-relaxed text-ink-700 sm:text-base">
+              시스템을 만들면 매출이 따라옵니다. 광고비가 아니라 구조가 답입니다.
+            </p>
+          </div>
+          <div className="mt-8">
+            <RevenueChart />
+          </div>
+        </div>
+      </section>
+
       {/* WHY NOT AN AGENCY */}
       <section className="border-b border-ink-100">
         <div className="container-wide py-12 sm:py-16">
@@ -245,24 +263,6 @@ export default function Home() {
             </p>
           </div>
           <CustomerJourney />
-        </div>
-      </section>
-
-      {/* RESULTS */}
-      <section className="border-b border-ink-100">
-        <div className="container-wide py-12 sm:py-16">
-          <div className="max-w-2xl">
-            <div className="label">실제 성장 그래프</div>
-            <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
-              7년간 매출 7배 성장
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-700 sm:text-base">
-              시스템을 만들면 매출이 따라옵니다. 광고비가 아니라 구조가 답입니다.
-            </p>
-          </div>
-          <div className="mt-8">
-            <RevenueChart />
-          </div>
         </div>
       </section>
 
