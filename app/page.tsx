@@ -1,5 +1,6 @@
 import CustomerJourney from "@/components/funnel/CustomerJourney";
 import RevenueChart from "@/components/RevenueChart";
+import SavingsCalculator from "@/components/SavingsCalculator";
 
 export default function Home() {
   return (
@@ -148,6 +149,25 @@ export default function Home() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      </section>
+
+      {/* SAVINGS CALCULATOR — 1년 아껴지는 비용 계산기 */}
+      <section className="border-b border-ink-100 bg-gradient-to-b from-brand-50/40 to-white">
+        <div className="container-narrow py-12 sm:py-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="label">맞춤 절감액 계산기</div>
+            <h2 className="mt-2 text-xl font-bold leading-snug text-ink-900 sm:text-3xl">
+              사장님 공간은 1년에 얼마가 새고 있을까요?
+            </h2>
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-700 sm:text-base">
+              5가지 정보만 골라주시면 OTA 수수료·광고비로 새는 돈을 자동 계산하고,
+              사장님 규모에 맞는 패키지를 그 자리에서 추천해드려요.
+            </p>
+          </div>
+          <div className="mx-auto mt-8 max-w-2xl">
+            <SavingsCalculator />
           </div>
         </div>
       </section>
