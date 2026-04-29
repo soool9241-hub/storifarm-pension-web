@@ -74,12 +74,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-3 sm:mt-10 sm:flex-row sm:justify-center">
+          <div className="mt-8 flex justify-center sm:mt-10">
             <a href="/diagnostic" className="btn-primary w-full sm:w-auto">
               먼저 무료 진단부터 받아보기 →
-            </a>
-            <a href="/contact?tier=light" className="btn-ghost w-full sm:w-auto">
-              🎁 초기 혜택 받기 (선착순 5팀)
             </a>
           </div>
         </div>
@@ -140,6 +137,59 @@ export default function Home() {
 
           <div className="mt-10">
             <TierCards />
+          </div>
+        </div>
+      </section>
+
+      {/* WHY 1-YEAR — 진솔한 운영자의 변 */}
+      <section className="border-b border-ink-100 bg-ink-100/30">
+        <div className="container-narrow py-12 sm:py-16">
+          <div className="mx-auto max-w-2xl">
+            <div className="label">진솔하게 말씀드리면</div>
+            <h2 className="mt-2 text-xl font-bold leading-snug text-ink-900 sm:text-3xl">
+              왜 최소 1년 약정을 받느냐면요
+            </h2>
+            <p className="mt-3 text-[13px] leading-relaxed text-ink-700 sm:text-base">
+              저도 사장님 입장이라면 <b>단기 월 결제</b>가 더 편할 거 알아요.
+              그래서 <b>시작 패키지는 단기 월 결제</b>로 열어뒀습니다. 그런데 성장·완성은 1년으로 받습니다.
+              그 이유를 솔직하게 적어둘게요.
+            </p>
+
+            <div className="mt-8 space-y-6">
+              <Reason
+                n={1}
+                title="3개월은 광고가 효과를 보기 전입니다."
+                body="네이버 검색 노출, 블로그 누적, 자체 예약 늘리기 — 이건 다 시간이 쌓여야 효과가 나옵니다. 짧게 끊어 가시면 비용만 쓰고, 효과 보기 전에 떠나는 그림이 됩니다. 결국 사장님이 가장 손해예요."
+              />
+              <Reason
+                n={2}
+                title="펜션은 성수기와 비수기가 한 사이클입니다."
+                body="여름·겨울·연휴까지 한 바퀴를 돌아야 ‘이 시스템이 진짜 매출을 올리는지’ 데이터로 보입니다. 6개월은 절반만 본 것이고, 그러면 사장님도 저도 판단을 잘못 내립니다."
+              />
+              <Reason
+                n={3}
+                title="대신, 가격을 외주 견적의 1/3 수준으로 낮췄습니다."
+                body="원래 풀 커스텀 + 광고 + 자동화면 외주 견적이 800만 ~ 2,000만이 나오죠. 1년 약정으로 받기 때문에 월 비용이 그만큼 가벼워지는 겁니다. 짧게 받으면 가격이 올라갈 수밖에 없어요."
+              />
+              <Reason
+                n={4}
+                title="저는 사장님 한 분을 1년 책임지고 끌고 갑니다."
+                body="저도 펜션을 직접 운영하는 사람이라, 한 분 받으면 1년은 그분 매출에 같이 묶입니다. 그래서 동시에 받을 수 있는 사장님 수가 한정되어 있고, 단기 손님은 받지 않는 겁니다."
+              />
+              <Reason
+                n={5}
+                title="1년이 지나면 사장님이 직접 돌릴 수 있게 됩니다."
+                body="제가 이 사업을 길게 하려면 사장님이 시스템에 ‘갇혀 있는’ 게 아니라 직접 운영할 수 있어야 합니다. 1년 동안은 같이 돌리고, 이후엔 사장님이 결정하시면 됩니다 — 저랑 계속 가시거나, 직접 가시거나."
+              />
+            </div>
+
+            <div className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-5 text-sm leading-relaxed text-ink-800 sm:p-6">
+              <div className="font-bold text-brand-900">짧게 시도부터 해보고 싶으시면</div>
+              <p className="mt-2">
+                <b>시작 패키지는 단기 월 결제</b>로 열어뒀습니다 (월 39만 / 한시 29만). 한 달씩 써보시면서
+                효과 확인하시고, 맞다 싶으면 성장·완성으로 옮겨가시면 됩니다. 1년 약정은 그때 결정하세요.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -286,5 +336,19 @@ export default function Home() {
       </section>
 
     </>
+  );
+}
+
+function Reason({ n, title, body }: { n: number; title: string; body: string }) {
+  return (
+    <div className="flex gap-4">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-900 text-sm font-bold text-white">
+        {n}
+      </div>
+      <div className="flex-1">
+        <h3 className="text-[15px] font-bold text-ink-900 sm:text-base">{title}</h3>
+        <p className="mt-1.5 text-[13px] leading-relaxed text-ink-700 sm:text-sm">{body}</p>
+      </div>
+    </div>
   );
 }
