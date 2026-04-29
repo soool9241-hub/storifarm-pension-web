@@ -386,27 +386,17 @@ export default function TierCards() {
                 ))}
               </ul>
 
-              <div className="mt-6 flex flex-col gap-2">
-                <a
-                  href={`/contact?tier=${key}`}
+              <div className="mt-6">
+                <button
+                  type="button"
+                  onClick={() => setOpen(key)}
                   className={`block w-full rounded-xl px-4 py-3 text-center text-sm font-semibold transition ${
                     t.highlight
                       ? "bg-white text-brand-900 hover:bg-brand-50"
                       : "bg-brand-900 text-white hover:bg-brand-700"
                   }`}
                 >
-                  {t.name} 상담 신청 →
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setOpen(key)}
-                  className={`block w-full rounded-xl border px-4 py-3 text-sm font-medium transition ${
-                    t.highlight
-                      ? "border-white/20 text-white hover:bg-white/10"
-                      : "border-ink-100 text-ink-700 hover:bg-ink-100/40"
-                  }`}
-                >
-                  포함 항목 자세히 보기
+                  자세히 보기 →
                 </button>
               </div>
             </div>
@@ -484,14 +474,17 @@ export default function TierCards() {
               </div>
             </div>
 
-            {/* Footer CTA */}
+            {/* Footer CTA — 초기 혜택 받기 (= 상담 신청 유도) */}
             <div className="border-t border-ink-100 bg-ink-100/30 px-6 py-4">
               <a
                 href={`/contact?tier=${open}`}
-                className="block w-full rounded-xl bg-brand-900 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:bg-brand-700"
+                className="block w-full rounded-xl bg-brand-900 px-4 py-3.5 text-center text-[15px] font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:bg-brand-700"
               >
-                {TIERS[open].name} 상담 신청 →
+                🎁 초기 혜택 받기 →
               </a>
+              <p className="mt-2 text-center text-[10px] leading-relaxed text-ink-500 sm:text-[11px]">
+                상담 신청 후 24시간 내 운영자가 직접 연락드립니다.
+              </p>
             </div>
           </div>
         </div>
