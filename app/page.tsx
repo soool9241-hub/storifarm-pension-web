@@ -10,7 +10,9 @@ export default function Home() {
           <div className="label">공간대관 사업자님께 드리는 편지</div>
 
           <h1 className="mt-3 text-[20px] font-bold leading-snug text-ink-900 sm:text-[32px]">
-            00평 공간 7년간 매출 7배 성장
+            120평 공방 / 60평 펜션,
+            <br />
+            7년간 매출 7배 성장
             <br />
             공간대관 사업 운영중인 운영자입니다!
           </h1>
@@ -62,7 +64,7 @@ export default function Home() {
           <div className="mx-auto mt-10 max-w-xl border-t border-ink-100 pt-5 text-center sm:mt-12 sm:pt-6">
             <div className="text-xs text-ink-500 sm:text-sm">이름 없이 편지를 드립니다</div>
             <div className="mt-1 text-sm font-semibold text-ink-900 sm:text-base">
-              7년차 공간대관 사업 운영자 드림
+              120평 공방 · 60평 펜션 7년 운영자 드림
             </div>
           </div>
 
