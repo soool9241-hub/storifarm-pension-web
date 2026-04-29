@@ -10,15 +10,19 @@ export default function Home() {
           <div className="label">공간대관 사업자님께 드리는 편지</div>
 
           <h1 className="mt-3 text-[20px] font-bold leading-snug text-ink-900 sm:text-[32px]">
-            120평 공방 / 60평 펜션,
+            120평 공방 10년 · 60평 펜션 7년
             <br />
-            7년간 매출 7배 성장
+            제가 직접 운영하면서 만든 시스템입니다.
             <br />
-            공간대관 사업 운영중인 운영자입니다!
+            <span className="text-brand-700">매일매일 업데이트되고 있어요.</span>
           </h1>
+          <p className="mx-auto mt-3 max-w-md text-[12px] font-medium text-ink-700 sm:text-sm">
+            공간대관 사업으로 매출 7배 성장 — 그 시스템을 그대로 복제해드립니다.
+          </p>
 
           <p className="mx-auto mt-4 max-w-md text-[12px] text-ink-500 sm:text-sm">
             펜션 / 파티룸 / 스튜디오 / 캠핑장 / 독채 - 공간을 빌려주는 모든 사업자를 위한 서비스입니다.
+            대행사가 만든 게 아니라, 제가 매일 운영하면서 다듬는 시스템이에요.
           </p>
 
           <div className="mx-auto mt-8 max-w-xl space-y-4 text-left text-[14px] leading-[1.85] text-ink-700 sm:mt-10 sm:space-y-5 sm:text-base sm:leading-[1.9]">
@@ -64,7 +68,7 @@ export default function Home() {
           <div className="mx-auto mt-10 max-w-xl border-t border-ink-100 pt-5 text-center sm:mt-12 sm:pt-6">
             <div className="text-xs text-ink-500 sm:text-sm">이름 없이 편지를 드립니다</div>
             <div className="mt-1 text-sm font-semibold text-ink-900 sm:text-base">
-              120평 공방 · 60평 펜션 7년 운영자 드림
+              120평 공방 10년 · 60평 펜션 7년 운영자 드림
             </div>
           </div>
 
@@ -94,7 +98,7 @@ export default function Home() {
           {/* Mobile: stacked compare cards */}
           <div className="mt-6 space-y-3 sm:hidden">
             {[
-              ["공간대관 운영 경험", "없음", "7년 / 7,000명 이용"],
+              ["공간대관 운영 경험", "없음", "공방 10년 · 펜션 7년 / 7,000명 이용"],
               ["예약 데이터 분석", "없음", "실전 304건 기반"],
               ["네이버 광고 운영", "별도 대행사", "직접 운영 (5그룹 37키워드)"],
               ["SMS 자동화", "없음", "포함 / Solapi 연동"],
@@ -129,7 +133,7 @@ export default function Home() {
               </thead>
               <tbody className="divide-y divide-ink-100">
                 {[
-                  ["공간대관 운영 경험", "없음", "7년 / 7,000명 이용"],
+                  ["공간대관 운영 경험", "없음", "공방 10년 · 펜션 7년 / 7,000명 이용"],
                   ["예약 데이터 분석", "없음", "실전 304건 기반"],
                   ["네이버 광고 운영", "별도 대행사", "직접 운영 (5그룹 37키워드)"],
                   ["SMS 자동화", "없음", "포함 / Solapi 연동"],
