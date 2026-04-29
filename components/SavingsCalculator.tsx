@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from "react";
 
 const SPACES = [1, 2, 3, 5];
-const BOOKINGS = [5, 10, 20, 30, 50];
+const BOOKINGS = [5, 10, 15, 20, 25, 30];
 const ADR = [10, 15, 20, 30, 50];
 const OTA = [30, 50, 70, 100];
 const AD = [0, 10, 30, 50, 100];
@@ -322,6 +322,10 @@ function Pick({
   onChange: (v: number) => void;
   suffix: string;
 }) {
+  const isCustom = value !== null && !options.includes(value);
+  const [showInput, setShowInput] = useState(isCustom);
+  const [draft, setDraft] = useState<string>(isCustom ? String(value) : "");
+
   return (
     <div>
       <div className="flex items-center justify-between">
@@ -332,12 +336,16 @@ function Pick({
       </div>
       <div className="mt-2 flex flex-wrap gap-1.5 sm:gap-2">
         {options.map((opt) => {
-          const active = value === opt;
+          const active = value === opt && !showInput;
           return (
             <button
               key={opt}
               type="button"
-              onClick={() => onChange(opt)}
+              onClick={() => {
+                onChange(opt);
+                setShowInput(false);
+                setDraft("");
+              }}
               className={`rounded-xl border px-3 py-2 text-[12px] font-medium transition sm:px-4 sm:text-sm ${
                 active
                   ? "border-brand-500 bg-brand-50 text-brand-900"
@@ -350,7 +358,39 @@ function Pick({
             </button>
           );
         })}
+        <button
+          type="button"
+          onClick={() => setShowInput(true)}
+          className={`rounded-xl border px-3 py-2 text-[12px] font-medium transition sm:px-4 sm:text-sm ${
+            showInput || isCustom
+              ? "border-brand-500 bg-brand-50 text-brand-900"
+              : "border-dashed border-ink-300 bg-white text-ink-700 hover:bg-ink-100/40"
+          }`}
+        >
+          ✏️ 직접 입력
+        </button>
       </div>
+      {showInput && (
+        <div className="mt-2 flex items-center gap-2 rounded-xl border border-brand-200 bg-brand-50/50 p-2">
+          <input
+            type="number"
+            inputMode="numeric"
+            min={0}
+            step={suffix === "%" ? 1 : 1}
+            value={draft}
+            onChange={(e) => {
+              setDraft(e.target.value);
+              const n = Number(e.target.value);
+              if (e.target.value !== "" && !Number.isNaN(n) && n >= 0) {
+                onChange(n);
+              }
+            }}
+            placeholder={`숫자 입력 (${suffix})`}
+            className="w-full rounded-lg border border-ink-100 bg-white px-3 py-2 text-sm outline-none focus:border-brand-500"
+          />
+          <span className="shrink-0 text-sm font-semibold text-ink-700">{suffix}</span>
+        </div>
+      )}
     </div>
   );
 }
