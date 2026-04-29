@@ -28,6 +28,19 @@ function useCountdown(deadline: Date) {
   };
 }
 
+function usePromoActive(deadline: Date) {
+  // Optimistic true to keep SEO/initial paint showing promo;
+  // flips to actual value on client mount.
+  const [active, setActive] = useState(true);
+  useEffect(() => {
+    const check = () => setActive(deadline.getTime() > Date.now());
+    check();
+    const id = setInterval(check, 60_000);
+    return () => clearInterval(id);
+  }, []);
+  return active;
+}
+
 function UrgencyBanner({ compact = false }: { compact?: boolean }) {
   const t = useCountdown(PROMO_DEADLINE);
   if (!t) {
@@ -283,6 +296,7 @@ const TIERS: Record<
 
 export default function TierCards() {
   const [open, setOpen] = useState<TierKey | null>(null);
+  const promoActive = usePromoActive(PROMO_DEADLINE);
 
   useEffect(() => {
     if (open) {
@@ -321,19 +335,37 @@ export default function TierCards() {
               <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
                 {t.summary}
               </div>
-              <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-bold">월 {t.price}</span>
-                <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
-              </div>
-              <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>{t.note}</div>
-              {t.promo && (
+              {key === "light" && promoActive ? (
                 <>
-                  <div className="mt-3 inline-flex w-fit items-center rounded-full bg-yellow-300 px-2.5 py-1 text-[11px] font-bold text-brand-900">
-                    🎁 {t.promo}
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className={`text-base line-through ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
+                      월 {t.price}만원
+                    </span>
+                    <span className="rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                      한시 -10만
+                    </span>
                   </div>
-                  {key === "light" && (
-                    <div className="mt-3">
-                      <UrgencyBanner compact />
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-red-600">월 29</span>
+                    <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
+                  </div>
+                  <div className={`mt-1 text-xs font-semibold text-red-700`}>
+                    선착순 5자리 한정 · {t.note}
+                  </div>
+                  <div className="mt-3">
+                    <UrgencyBanner compact />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-4xl font-bold">월 {t.price}</span>
+                    <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
+                  </div>
+                  <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>{t.note}</div>
+                  {t.promo && key !== "light" && (
+                    <div className="mt-3 inline-flex w-fit items-center rounded-full bg-yellow-300 px-2.5 py-1 text-[11px] font-bold text-brand-900">
+                      🎁 {t.promo}
                     </div>
                   )}
                 </>
@@ -396,9 +428,19 @@ export default function TierCards() {
             <div className="sticky top-0 flex items-center justify-between border-b border-ink-100 bg-white px-6 py-4">
               <div>
                 <div className="text-xs text-ink-500">{TIERS[open].tagline}</div>
-                <div className="mt-0.5 flex items-baseline gap-2">
+                <div className="mt-0.5 flex flex-wrap items-baseline gap-2">
                   <span className="text-xl font-bold text-ink-900">{TIERS[open].name}</span>
-                  <span className="text-sm font-semibold text-brand-700">월 {TIERS[open].price}만원</span>
+                  {open === "light" && promoActive ? (
+                    <>
+                      <span className="text-xs text-ink-500 line-through">월 {TIERS[open].price}만</span>
+                      <span className="text-sm font-bold text-red-600">월 29만원</span>
+                      <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                        -10만 한시
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-sm font-semibold text-brand-700">월 {TIERS[open].price}만원</span>
+                  )}
                   <span className="text-xs text-ink-500">({TIERS[open].note})</span>
                 </div>
               </div>
@@ -414,12 +456,12 @@ export default function TierCards() {
 
             {/* Body */}
             <div className="max-h-[68vh] overflow-y-auto px-6 py-5">
-              {TIERS[open].promo && (
+              {TIERS[open].promo && open === "light" && promoActive && (
                 <div className="mb-5 space-y-2">
                   <div className="rounded-xl bg-yellow-100 p-3 text-center text-[12px] font-bold text-brand-900 sm:text-sm">
                     🎁 {TIERS[open].promo} (10만원 할인)
                   </div>
-                  {open === "light" && <UrgencyBanner />}
+                  <UrgencyBanner />
                 </div>
               )}
               <div className="space-y-5">
