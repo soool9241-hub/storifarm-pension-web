@@ -286,124 +286,201 @@ const TIERS: Record<
 };
 
 export default function TierCards() {
+  const [open, setOpen] = useState<TierKey | null>(null);
   const promoActive = usePromoActive(PROMO_DEADLINE);
 
+  useEffect(() => {
+    if (open) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [open]);
+
   return (
-    <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
-      {(Object.keys(TIERS) as TierKey[]).map((key) => {
-        const t = TIERS[key];
-        return (
-          <div
-            key={key}
-            className={`relative flex flex-col rounded-3xl border p-6 transition sm:p-7 ${
-              t.highlight
-                ? "border-brand-900 bg-brand-900 text-white shadow-2xl shadow-brand-900/20"
-                : "border-ink-100 bg-white text-ink-900"
-            }`}
-          >
-            {t.highlight && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-yellow-300 px-3 py-1 text-[11px] font-bold text-brand-900 sm:text-xs">
-                ⭐ 가장 많이 선택
+    <>
+      <div className="grid gap-5 sm:grid-cols-3 sm:gap-6">
+        {(Object.keys(TIERS) as TierKey[]).map((key) => {
+          const t = TIERS[key];
+          return (
+            <div
+              key={key}
+              className={`relative flex flex-col rounded-3xl border p-6 transition sm:p-7 ${
+                t.highlight
+                  ? "border-brand-900 bg-brand-900 text-white shadow-2xl shadow-brand-900/20"
+                  : "border-ink-100 bg-white text-ink-900"
+              }`}
+            >
+              {t.highlight && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-yellow-300 px-3 py-1 text-[11px] font-bold text-brand-900 sm:text-xs">
+                  ⭐ 가장 많이 선택
+                </div>
+              )}
+
+              <div className={`text-xs font-medium ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
+                {t.tagline}
               </div>
-            )}
+              <h3 className="mt-1 text-2xl font-bold sm:text-[26px]">{t.name}</h3>
+              <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
+                {t.summary}
+              </div>
 
+              {key === "light" && promoActive ? (
+                <>
+                  <div className="mt-4 flex items-center gap-2">
+                    <span className={`text-base line-through ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
+                      월 {t.price}만원
+                    </span>
+                    <span className="rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold text-white">
+                      한시 -10만
+                    </span>
+                  </div>
+                  <div className="mt-1 flex items-baseline gap-1">
+                    <span className="text-4xl font-bold text-red-600">월 29</span>
+                    <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
+                  </div>
+                  <div className="mt-1 text-xs font-semibold text-red-700">
+                    선착순 5자리 한정 · {t.note}
+                  </div>
+                  <div className="mt-3">
+                    <UrgencyBanner compact />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-4xl font-bold">월 {t.price}</span>
+                    <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
+                  </div>
+                  <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>{t.note}</div>
+                  {t.promo && key !== "light" && (
+                    <div className="mt-3 inline-flex w-fit items-center rounded-full bg-yellow-300 px-2.5 py-1 text-[11px] font-bold text-brand-900">
+                      🎁 {t.promo}
+                    </div>
+                  )}
+                </>
+              )}
+
+              <ul className="mt-5 space-y-2.5 border-t border-white/15 pt-5 text-sm">
+                {t.keyPoints.map((p) => (
+                  <li key={p} className="flex items-start gap-2">
+                    <span
+                      className={`mt-0.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full text-[10px] font-bold ${
+                        t.highlight ? "bg-yellow-300 text-brand-900" : "bg-brand-50 text-brand-700"
+                      }`}
+                    >
+                      ✓
+                    </span>
+                    <span className={t.highlight ? "" : "text-ink-700"}>{p}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-6">
+                <button
+                  type="button"
+                  onClick={() => setOpen(key)}
+                  className={`block w-full rounded-xl px-4 py-3 text-center text-sm font-semibold transition ${
+                    t.highlight
+                      ? "bg-white text-brand-900 hover:bg-brand-50"
+                      : "bg-brand-900 text-white hover:bg-brand-700"
+                  }`}
+                >
+                  자세히 보기 →
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* MODAL */}
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-0 sm:items-center sm:p-6"
+          onClick={() => setOpen(null)}
+        >
+          <div
+            className="relative max-h-[88vh] w-full max-w-2xl overflow-hidden rounded-t-3xl bg-white shadow-2xl sm:rounded-3xl"
+            onClick={(e) => e.stopPropagation()}
+          >
             {/* Header */}
-            <div className={`text-xs font-medium ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
-              {t.tagline}
-            </div>
-            <h3 className="mt-1 text-2xl font-bold sm:text-[26px]">{t.name}</h3>
-            <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
-              {t.summary}
+            <div className="sticky top-0 flex items-center justify-between border-b border-ink-100 bg-white px-6 py-4">
+              <div>
+                <div className="text-xs text-ink-500">{TIERS[open].tagline}</div>
+                <div className="mt-0.5 flex flex-wrap items-baseline gap-2">
+                  <span className="text-xl font-bold text-ink-900">{TIERS[open].name}</span>
+                  {open === "light" && promoActive ? (
+                    <>
+                      <span className="text-xs text-ink-500 line-through">월 {TIERS[open].price}만</span>
+                      <span className="text-sm font-bold text-red-600">월 29만원</span>
+                      <span className="rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-bold text-white">
+                        -10만 한시
+                      </span>
+                    </>
+                  ) : (
+                    <span className="text-sm font-semibold text-brand-700">월 {TIERS[open].price}만원</span>
+                  )}
+                  <span className="text-xs text-ink-500">({TIERS[open].note})</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setOpen(null)}
+                aria-label="닫기"
+                className="rounded-full p-2 text-ink-500 hover:bg-ink-100/60"
+              >
+                ✕
+              </button>
             </div>
 
-            {/* Price block */}
-            {key === "light" && promoActive ? (
-              <>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className={`text-base line-through ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>
-                    월 {t.price}만원
-                  </span>
-                  <span className="rounded-full bg-red-500 px-2 py-0.5 text-[10px] font-bold text-white">
-                    한시 -10만
-                  </span>
-                </div>
-                <div className="mt-1 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-red-600">월 29</span>
-                  <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
-                </div>
-                <div className="mt-1 text-xs font-semibold text-red-700">
-                  선착순 5자리 한정 · {t.note}
-                </div>
-                <div className="mt-3">
-                  <UrgencyBanner compact />
-                </div>
-              </>
-            ) : (
-              <>
-                <div className="mt-4 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold">월 {t.price}</span>
-                  <span className={`text-sm ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>만원</span>
-                </div>
-                <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>{t.note}</div>
-                {t.promo && key !== "light" && (
-                  <div className="mt-3 inline-flex w-fit items-center rounded-full bg-yellow-300 px-2.5 py-1 text-[11px] font-bold text-brand-900">
-                    🎁 {t.promo}
+            {/* Body */}
+            <div className="max-h-[68vh] overflow-y-auto px-6 py-5">
+              {open === "light" && promoActive && (
+                <div className="mb-5 space-y-2">
+                  <div className="rounded-xl bg-yellow-100 p-3 text-center text-[12px] font-bold text-brand-900 sm:text-sm">
+                    🎁 선착순 5팀 한정 월 29만 (10만원 할인)
                   </div>
-                )}
-              </>
-            )}
-
-            {/* All sections inline (no modal) */}
-            <div className="mt-6 flex-1 space-y-5 border-t border-white/15 pt-5">
-              {t.sections.map((s) => (
-                <div key={s.title}>
-                  <div
-                    className={`flex items-center gap-2 text-[13px] font-bold ${
-                      t.highlight ? "text-yellow-300" : "text-brand-900"
-                    }`}
-                  >
-                    <span>{s.icon}</span>
-                    <span>{s.title}</span>
-                  </div>
-                  <ul className="mt-2 space-y-1.5 text-[12.5px] leading-relaxed sm:text-[13px]">
-                    {s.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span
-                          className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${
-                            t.highlight ? "bg-yellow-300" : "bg-brand-500"
-                          }`}
-                        />
-                        <span className={t.highlight ? "text-white/90" : "text-ink-700"}>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <UrgencyBanner />
                 </div>
-              ))}
+              )}
+              <div className="space-y-5">
+                {TIERS[open].sections.map((s) => (
+                  <div key={s.title}>
+                    <div className="flex items-center gap-2 text-sm font-bold text-brand-900">
+                      <span>{s.icon}</span>
+                      <span>{s.title}</span>
+                    </div>
+                    <ul className="mt-2 space-y-1.5 pl-6 text-[13px] text-ink-700 sm:text-sm">
+                      {s.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-brand-500" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* CTA */}
-            <div className="mt-6">
+            {/* Footer CTA */}
+            <div className="border-t border-ink-100 bg-ink-100/30 px-6 py-4">
               <a
-                href={`/contact?tier=${key}`}
-                className={`block w-full rounded-xl px-4 py-3.5 text-center text-[14px] font-semibold transition ${
-                  t.highlight
-                    ? "bg-white text-brand-900 hover:bg-brand-50"
-                    : "bg-brand-900 text-white hover:bg-brand-700"
-                }`}
+                href={`/contact?tier=${open}`}
+                className="block w-full rounded-xl bg-brand-900 px-4 py-3.5 text-center text-[15px] font-semibold text-white shadow-lg shadow-brand-900/20 transition hover:bg-brand-700"
               >
                 🎁 초기 혜택 받기 →
               </a>
-              <p
-                className={`mt-2 text-center text-[10px] leading-relaxed ${
-                  t.highlight ? "text-brand-100" : "text-ink-500"
-                }`}
-              >
+              <p className="mt-2 text-center text-[10px] leading-relaxed text-ink-500 sm:text-[11px]">
                 상담 신청 후 24시간 내 운영자가 직접 연락드립니다.
               </p>
             </div>
           </div>
-        );
-      })}
-    </div>
+        </div>
+      )}
+    </>
   );
 }
