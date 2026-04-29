@@ -154,38 +154,64 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Feature matrix */}
+          {/* Feature matrix — grouped by 5 value pillars */}
           <div className="mt-4 overflow-hidden rounded-2xl border border-ink-100 bg-white">
             <table className="w-full text-[12px] sm:text-sm">
               <tbody>
                 {[
-                  { f: "홈페이지 제작", l: "단일 페이지", s: "풀 커스텀", p: "풀 커스텀 + 다지점" },
+                  // 섹션 1: 공간 운영 자동화 홈페이지 구축
+                  { section: "🏠 공간 운영 자동화 홈페이지 구축" },
+                  { f: "홈페이지 형태", l: "단일 페이지", s: "풀 커스텀", p: "풀 커스텀 + 다지점" },
                   { f: "도메인 + 호스팅", l: "✓", s: "✓", p: "✓" },
                   { f: "휴대폰 반응형", l: "✓", s: "✓", p: "✓" },
                   { f: "예약 시스템", l: "문의 폼형", s: "달력형 실시간", p: "달력형 + 다지점 통합" },
                   { f: "결제 연동", l: "—", s: "✓", p: "✓" },
-                  { f: "SMS 자동 발송", l: "1종 (예약확인)", s: "5종", p: "5종 + 알림톡" },
-                  { f: "네이버 플레이스", l: "DIY 가이드", s: "직접 등록", p: "등록 + 최적화" },
-                  { f: "네이버 광고", l: "—", s: "37 키워드 세팅", p: "37 키워드 + 매월 최적화" },
-                  { f: "방문자 대시보드", l: "—", s: "GA4 기본", p: "GA4 + 작전회의" },
+                  { f: "SMS / 알림톡 자동 발송", l: "1종 (예약확인)", s: "5종", p: "5종 + 알림톡 통합" },
+
+                  // 섹션 2: 전환되는 키워드 셋팅
+                  { section: "🎯 전환되는 키워드 셋팅" },
+                  { f: "네이버 광고 키워드", l: "기본 5개", s: "37 키워드 세팅", p: "37 키워드 + 매월 최적화" },
+                  { f: "네이버 플레이스", l: "DIY 등록 가이드", s: "직접 등록", p: "등록 + 최적화 컨설팅" },
+                  { f: "방문자·전환 대시보드", l: "—", s: "GA4 기본", p: "GA4 + 작전회의" },
+                  { f: "광고 1:1 컨설팅", l: "—", s: "—", p: "매월 1회" },
+
+                  // 섹션 3: 운영관리 교육
+                  { section: "📚 운영관리 교육" },
+                  { f: "셀프 운영 가이드북", l: "✓", s: "✓", p: "✓" },
+                  { f: "1:1 운영 코칭", l: "—", s: "1회 (1시간)", p: "매월 1회" },
                   { f: "콘텐츠 업데이트", l: "월 1회", s: "월 2회", p: "월 2회 + 콘텐츠 제작 2건" },
-                  { f: "다지점 통합 관리", l: "—", s: "—", p: "✓" },
-                  { f: "광고 컨설팅 (1:1)", l: "—", s: "—", p: "매월 1회" },
                   { f: "매월 데이터 리포트", l: "—", s: "—", p: "✓" },
+
+                  // 섹션 4: 지역 파트너십 제휴
+                  { section: "🤝 지역 파트너십 제휴" },
+                  { f: "지역 1인 독점 우선권", l: "—", s: "우선 안내", p: "✓ (즉시 등록)" },
+                  { f: "파트너 레퍼럴 수익", l: "—", s: "건당 보상", p: "건당 + 월 분배" },
+                  { f: "지역 사업주 네트워크", l: "—", s: "분기 모임", p: "월간 비공개 모임" },
+
+                  // 섹션 5: 평생 업데이트 시스템 라이센스
+                  { section: "♾ 평생 업데이트 시스템 라이센스 구독" },
+                  { f: "시스템 자동 업데이트 (매일)", l: "✓", s: "✓", p: "✓" },
+                  { f: "신규 기능 우선 적용", l: "—", s: "✓", p: "✓ (베타 우선)" },
                   { f: "긴급 대응", l: "영업일", s: "영업일", p: "24시간 핫라인" },
-                ].map((row, i) => (
-                  <tr
-                    key={row.f}
-                    className={`${i !== 0 ? "border-t border-ink-100" : ""} ${
-                      i % 2 === 0 ? "bg-white" : "bg-ink-100/20"
-                    }`}
-                  >
-                    <td className="px-3 py-2.5 font-medium text-ink-900 sm:px-4 sm:py-3">{row.f}</td>
-                    <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.l}</td>
-                    <td className="px-2 py-2.5 text-center font-semibold text-brand-900 sm:px-4 sm:py-3">{row.s}</td>
-                    <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.p}</td>
-                  </tr>
-                ))}
+                ].map((row, i) => {
+                  if ("section" in row) {
+                    return (
+                      <tr key={row.section} className="bg-brand-50">
+                        <td colSpan={4} className="px-3 py-2.5 text-[12px] font-bold text-brand-900 sm:px-4 sm:py-3 sm:text-sm">
+                          {row.section}
+                        </td>
+                      </tr>
+                    );
+                  }
+                  return (
+                    <tr key={`${row.f}-${i}`} className="border-t border-ink-100 bg-white">
+                      <td className="px-3 py-2.5 font-medium text-ink-900 sm:px-4 sm:py-3">{row.f}</td>
+                      <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.l}</td>
+                      <td className="px-2 py-2.5 text-center font-semibold text-brand-900 sm:px-4 sm:py-3">{row.s}</td>
+                      <td className="px-2 py-2.5 text-center text-ink-700 sm:px-4 sm:py-3">{row.p}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
