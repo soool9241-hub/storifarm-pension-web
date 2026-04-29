@@ -122,6 +122,15 @@ export default function ContactClient({
 
       {error && <div className="rounded-lg bg-red-50 p-3 text-xs text-red-700">{error}</div>}
 
+      <div className="rounded-xl border border-brand-200 bg-brand-50 p-4 text-xs leading-relaxed text-ink-800">
+        <div className="font-bold text-brand-900">결제는 100% 선수금 한 번에 받습니다</div>
+        <p className="mt-1">
+          계약 후 제작비 전액을 한 번에 입금받고, 14~21일 내 납품을 책임집니다.
+          착수금/잔금 분할은 따로 두지 않습니다. 납품 지연 시 1일당 무상 유지보수
+          1일을 추가로 드리는 약속을 함께 적어두는 구조입니다.
+        </p>
+      </div>
+
       <button
         type="submit"
         disabled={status === "sending"}

@@ -18,61 +18,61 @@ export const CATEGORIES: DiagnosticCategory[] = [
   {
     id: "website",
     icon: "🌐",
-    title: "홈페이지",
+    title: "우리 펜션 홈페이지",
     weight: 25,
     items: [
-      { id: "has_website", label: "자체 홈페이지 보유", score: 10, desc: "자체 도메인(.com/.kr)으로 운영되는 홈페이지" },
-      { id: "mobile_responsive", label: "모바일 반응형", score: 5, desc: "스마트폰에서 정상적으로 보이는지" },
-      { id: "has_booking", label: "온라인 예약 시스템", score: 7, desc: "홈페이지에서 바로 예약 가능한 기능" },
-      { id: "ssl", label: "SSL 보안 인증서", score: 3, desc: "https:// 적용 여부 (자물쇠 아이콘)" },
+      { id: "has_website", label: "우리 펜션 이름으로 된 홈페이지가 있어요", score: 10, desc: "예: ○○펜션.com 처럼 우리만의 인터넷 주소가 있는 홈페이지" },
+      { id: "mobile_responsive", label: "휴대폰으로 봐도 글씨와 사진이 잘 보여요", score: 5, desc: "손님이 핸드폰으로 봤을 때 깨지지 않고 보기 편한지" },
+      { id: "has_booking", label: "홈페이지에서 손님이 바로 예약할 수 있어요", score: 7, desc: "전화 안 하고 홈페이지에서 날짜 고르고 결제까지 가능" },
+      { id: "ssl", label: "홈페이지 주소창에 자물쇠 모양이 있어요", score: 3, desc: "주소 앞에 자물쇠가 있으면 안전한 사이트라는 뜻이에요" },
     ],
   },
   {
     id: "search",
     icon: "🔍",
-    title: "검색 노출",
+    title: "네이버에서 우리 펜션 찾기",
     weight: 25,
     items: [
-      { id: "naver_place", label: "네이버 플레이스 등록", score: 5, desc: "네이버 지도에 펜션 정보 등록" },
-      { id: "naver_search", label: "지역+펜션 검색 시 1페이지 노출", score: 8, desc: "'전주 독채 펜션' 등 검색 시 상위 노출" },
-      { id: "naver_ad", label: "네이버 파워링크 광고", score: 5, desc: "검색 광고 집행 여부" },
-      { id: "naver_ad_tracking", label: "광고 전환 추적 (UTM/GA)", score: 7, desc: "어떤 광고에서 예약이 들어오는지 추적" },
+      { id: "naver_place", label: "네이버 지도에 우리 펜션이 등록돼 있어요", score: 5, desc: "네이버에서 펜션 이름 치면 지도에 위치가 떠요" },
+      { id: "naver_search", label: "'우리 동네 펜션'으로 검색하면 첫 페이지에 우리가 나와요", score: 8, desc: "예: '전주 펜션' 검색했을 때 맨 앞쪽에 나오는지" },
+      { id: "naver_ad", label: "네이버에 광고비를 내고 검색 위쪽에 띄우고 있어요", score: 5, desc: "네이버 검색 결과 맨 위 광고 자리에 우리 펜션 올림" },
+      { id: "naver_ad_tracking", label: "어느 광고를 보고 손님이 예약했는지 알 수 있어요", score: 7, desc: "광고비를 어디에 써야 효과 좋은지 숫자로 확인 가능" },
     ],
   },
   {
     id: "ota",
     icon: "🏨",
-    title: "OTA · 예약 채널",
+    title: "예약 받는 곳들",
     weight: 20,
     items: [
-      { id: "airbnb", label: "에어비앤비 입점", score: 5, desc: "에어비앤비 운영 중" },
-      { id: "yanolja", label: "야놀자/여기어때 입점", score: 5, desc: "국내 OTA 입점" },
-      { id: "self_ratio", label: "자체 예약 비율 30% 이상", score: 8, desc: "OTA 아닌 자체 채널 예약" },
-      { id: "review_mgmt", label: "리뷰 관리 (답글 작성)", score: 2, desc: "OTA 리뷰 답글 관리" },
+      { id: "airbnb", label: "에어비앤비에 우리 펜션을 올려놨어요", score: 5, desc: "외국인·국내 손님이 에어비앤비에서 예약 가능" },
+      { id: "yanolja", label: "야놀자나 여기어때에 우리 펜션을 올려놨어요", score: 5, desc: "야놀자/여기어때에서 우리 펜션 검색되고 예약됨" },
+      { id: "self_ratio", label: "10명 중 3명 이상은 야놀자/에어비앤비 안 거치고 우리한테 바로 예약해요", score: 8, desc: "수수료 안 떼고 받는 직접 예약이 30% 이상" },
+      { id: "review_mgmt", label: "손님 후기에 답글을 직접 달아주고 있어요", score: 2, desc: "야놀자·에어비앤비에 올라온 리뷰에 사장님이 답글 작성" },
     ],
   },
   {
     id: "marketing",
     icon: "📱",
-    title: "SNS · 마케팅",
+    title: "SNS와 입소문 만들기",
     weight: 15,
     items: [
-      { id: "instagram", label: "인스타그램 운영 (월 4회+)", score: 5, desc: "활성 인스타그램 계정" },
-      { id: "blog", label: "네이버 블로그 운영", score: 4, desc: "공식 블로그 정기 포스팅" },
-      { id: "kakao_channel", label: "카카오톡 채널", score: 3, desc: "카카오톡 비즈니스 채널" },
-      { id: "sms_marketing", label: "고객 DB 기반 마케팅", score: 3, desc: "SMS/카톡으로 재방문 유도" },
+      { id: "instagram", label: "인스타그램에 한 달에 4번 이상 사진을 올려요", score: 5, desc: "일주일에 한 번 정도 펜션 사진/영상 게시" },
+      { id: "blog", label: "네이버 블로그에 가끔 글을 올려요", score: 4, desc: "펜션 소개·후기·꿀팁 같은 글을 한 달에 한두 번이라도" },
+      { id: "kakao_channel", label: "손님이 카카오톡으로 우리 펜션을 친구추가할 수 있어요", score: 3, desc: "카톡에서 우리 펜션 채널 추가 후 문의·소식 받기 가능" },
+      { id: "sms_marketing", label: "예전에 다녀간 손님한테 가끔 문자/카톡을 보내요", score: 3, desc: "재방문 유도용 안부 문자, 할인 안내 문자 등" },
     ],
   },
   {
     id: "operation",
     icon: "⚙️",
-    title: "운영 시스템",
+    title: "예약·손님 관리 자동화",
     weight: 15,
     items: [
-      { id: "auto_sms", label: "예약 확인 자동 발송", score: 4, desc: "예약 시 자동 SMS/카톡 발송" },
-      { id: "guest_db", label: "고객 DB 수집·관리", score: 4, desc: "예약자 연락처 체계적 관리" },
-      { id: "analytics", label: "방문자 분석 (GA4 등)", score: 4, desc: "홈페이지 방문자 데이터 분석" },
-      { id: "checkin_system", label: "셀프 체크인 시스템", score: 3, desc: "키패드 / 스마트 체크인" },
+      { id: "auto_sms", label: "손님이 예약하면 안내 문자가 자동으로 나가요", score: 4, desc: "사장님이 일일이 안 보내도 예약 확인 문자가 자동 발송" },
+      { id: "guest_db", label: "다녀간 손님 이름·번호를 따로 모아두고 있어요", score: 4, desc: "엑셀, 노트, 폰 메모장 어디든 손님 명단을 정리해둠" },
+      { id: "analytics", label: "우리 홈페이지에 며칠에 몇 명이 들어오는지 알 수 있어요", score: 4, desc: "방문자 수·예약 전환율을 숫자로 확인 가능" },
+      { id: "checkin_system", label: "손님이 비밀번호로 문 열고 알아서 들어가요", score: 3, desc: "현관문 키패드/도어락으로 셀프 체크인" },
     ],
   },
 ];
@@ -110,11 +110,11 @@ export function scoreDiagnostic(answers: DiagnosticAnswers): DiagnosticResult {
 }
 
 export function gradeOf(pct: number): { grade: Grade; label: string; msg: string } {
-  if (pct >= 80) return { grade: "A", label: "우수", msg: "온라인 운영이 잘 되고 있습니다. 세부 최적화로 더 성장할 수 있어요." };
-  if (pct >= 60) return { grade: "B", label: "양호", msg: "기본은 갖췄지만 경쟁에서 밀릴 수 있습니다. 핵심 항목 보완이 필요해요." };
-  if (pct >= 40) return { grade: "C", label: "보통", msg: "잠재 고객이 사장님 펜션을 찾기 어려운 상태입니다. 시급한 개선이 필요합니다." };
-  if (pct >= 20) return { grade: "D", label: "미흡", msg: "온라인 존재감이 매우 약합니다. 매출 기회를 놓치고 계실 가능성이 높아요." };
-  return { grade: "F", label: "위험", msg: "OTA 수수료만 나가고, 자체 경쟁력은 제로에 가깝습니다. 즉시 개선이 필요합니다." };
+  if (pct >= 80) return { grade: "A", label: "아주 잘하고 계세요", msg: "사장님은 온라인 관리를 정말 잘하고 계십니다. 조금만 더 다듬으면 매출이 더 늘 수 있어요." };
+  if (pct >= 60) return { grade: "B", label: "기본은 잘 돼 있어요", msg: "기본은 잘 갖춰져 있지만, 옆집 펜션이 빠르게 따라오고 있어요. 몇 가지만 더 손보면 안전합니다." };
+  if (pct >= 40) return { grade: "C", label: "조금 부족해요", msg: "손님이 우리 펜션을 인터넷에서 찾기 어려운 상태예요. 지금 손보지 않으면 빈 방이 늘어날 수 있어요." };
+  if (pct >= 20) return { grade: "D", label: "많이 부족해요", msg: "인터넷에서 우리 펜션이 거의 안 보이고 있어요. 들어올 손님을 놓치고 계실 가능성이 큽니다." };
+  return { grade: "F", label: "지금 바로 손봐야 해요", msg: "지금은 야놀자·에어비앤비에 수수료만 내고 계실 가능성이 큽니다. 우리 것을 만들어야 매출이 남습니다." };
 }
 
 export function improvementPriorities(result: DiagnosticResult, answers: DiagnosticAnswers): string[] {

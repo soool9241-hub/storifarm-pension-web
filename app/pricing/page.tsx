@@ -102,9 +102,9 @@ export default async function PricingPage() {
             {[
               { n: 1, t: "무료 상담 30분", d: "현황 진단 + 맞춤 Tier 추천" },
               { n: 2, t: "제안 확정", d: "페이지 구성·디자인 방향 협의" },
-              { n: 3, t: "계약 + 착수금 50%", d: "템플릿 선택 + 킥오프" },
+              { n: 3, t: "계약 + 결제 100%", d: "선수금 일괄 입금 → 즉시 착수" },
               { n: 4, t: "제작 + 검수", d: "14~21일 내 완성" },
-              { n: 5, t: "런칭 + 잔금 50%", d: "도메인 연결 + 광고 라이브" },
+              { n: 5, t: "런칭 + 인수인계", d: "도메인 연결 + 광고 라이브" },
             ].map((s) => (
               <li key={s.n} className="card p-5">
                 <div className="text-xs font-semibold text-brand-700">STEP {s.n}</div>
@@ -113,6 +113,15 @@ export default async function PricingPage() {
               </li>
             ))}
           </ol>
+          <div className="mt-6 rounded-2xl border border-brand-200 bg-brand-50 p-5 text-sm text-ink-800">
+            <div className="font-bold text-brand-900">결제 안내 — 100% 선수금</div>
+            <p className="mt-2 leading-relaxed">
+              계약과 동시에 제작비 전액(100%)을 한 번에 입금해 주시는 구조입니다.
+              분할 결제·잔금 정산은 따로 두지 않습니다. 대신 14~21일 내 납품을 책임지고,
+              납품 후 첫 1개월 무상 점검을 약속드립니다. 일정 안에 납품이 안 되면
+              납품 시까지 지연 1일당 무상 유지보수 1일을 추가로 드립니다.
+            </p>
+          </div>
         </div>
       </section>
     </div>

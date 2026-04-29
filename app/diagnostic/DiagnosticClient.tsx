@@ -48,19 +48,19 @@ export default function DiagnosticClient() {
     return (
       <div className="card overflow-hidden">
         <div className="bg-brand-50 px-6 py-8 text-center">
-          <div className="label text-brand-700">진단 완료</div>
+          <div className="label text-brand-700">체크 다 끝났어요</div>
           <div className="mt-1 text-4xl font-bold text-brand-900">{grade.grade}등급</div>
           <div className="mt-1 text-sm text-brand-700">{grade.label} · {result.pct}점</div>
         </div>
         <div className="p-6 text-sm text-ink-700">
           <p className="mb-4">{grade.msg}</p>
           <p className="mb-4">
-            방금 <b>{form.phone}</b>으로 맞춤 리포트 링크를 보내드렸습니다.
-            잠시 후 문자를 확인해주세요.
+            방금 <b>{form.phone}</b> 번호로 결과지 보는 링크를 문자로 보내드렸어요.
+            잠시 뒤 휴대폰 문자함을 확인해 주세요.
           </p>
           {resultUrl && (
             <a href={resultUrl} className="btn-primary w-full">
-              지금 바로 리포트 보기
+              지금 바로 결과지 보러 가기
             </a>
           )}
         </div>
@@ -76,32 +76,32 @@ export default function DiagnosticClient() {
           <div className="mt-1 text-3xl font-bold text-brand-900">{grade.grade} · {result.pct}점</div>
           <div className="mt-1 text-xs text-brand-700">{grade.label}</div>
         </div>
-        <h2 className="text-lg font-semibold">맞춤 리포트를 받을 곳</h2>
+        <h2 className="text-lg font-semibold">결과지를 어디로 보내드릴까요?</h2>
         <p className="mt-1 text-xs text-ink-500">
-          연락처는 리포트 전송 외 용도로 사용되지 않습니다. 광고 전화 없음을 약속드립니다.
+          알려주신 번호로 결과지만 한 번 보내드려요. 광고 전화는 절대 드리지 않습니다.
         </p>
 
         <div className="mt-5 grid gap-3">
-          <Field label="성함" v={form.name} onChange={(v) => setForm({ ...form, name: v })} placeholder="김사장" />
+          <Field label="사장님 성함" v={form.name} onChange={(v) => setForm({ ...form, name: v })} placeholder="예) 김사장" />
           <Field
-            label="연락처"
+            label="문자 받으실 휴대폰 번호"
             v={form.phone}
             onChange={(v) => setForm({ ...form, phone: v })}
             placeholder="010-0000-0000"
             type="tel"
           />
-          <Field label="펜션명 (선택)" v={form.pension_name} onChange={(v) => setForm({ ...form, pension_name: v })} placeholder="○○펜션" />
-          <Field label="지역 (선택)" v={form.region} onChange={(v) => setForm({ ...form, region: v })} placeholder="전북 완주" />
+          <Field label="펜션 이름 (안 적으셔도 돼요)" v={form.pension_name} onChange={(v) => setForm({ ...form, pension_name: v })} placeholder="예) 달팽이아지트" />
+          <Field label="펜션 지역 (안 적으셔도 돼요)" v={form.region} onChange={(v) => setForm({ ...form, region: v })} placeholder="예) 전북 완주" />
         </div>
 
         {error && <div className="mt-4 rounded-lg bg-red-50 p-3 text-xs text-red-700">{error}</div>}
 
         <div className="mt-6 flex gap-2">
           <button onClick={() => setStep("quiz")} className="btn-ghost flex-1" disabled={step === "submitting"}>
-            ← 진단으로
+            ← 다시 체크하러 가기
           </button>
           <button onClick={submit} className="btn-primary flex-1" disabled={step === "submitting"}>
-            {step === "submitting" ? "전송 중..." : "리포트 받기"}
+            {step === "submitting" ? "보내는 중..." : "결과지 받아보기"}
           </button>
         </div>
       </div>
@@ -114,13 +114,13 @@ export default function DiagnosticClient() {
       <div className="card p-4">
         <div className="flex items-center justify-between">
           <div>
-            <div className="label">진행률</div>
+            <div className="label">지금까지 체크하신 것</div>
             <div className="text-sm font-semibold">
-              {answeredCount}개 체크 · 예상 {result.pct}점 ({grade.grade}등급)
+              {answeredCount}개 체크 · 지금 점수 {result.pct}점 ({grade.grade}등급)
             </div>
           </div>
           <div className="text-right">
-            <div className="label">총점</div>
+            <div className="label">전체 점수</div>
             <div className="text-lg font-bold text-brand-900">
               {result.score} / {TOTAL_MAX}
             </div>
@@ -187,7 +187,7 @@ export default function DiagnosticClient() {
 
       <div className="sticky bottom-4 z-10">
         <button onClick={() => setStep("contact")} className="btn-primary w-full">
-          결과 확인 →
+          결과 보러 가기 →
         </button>
       </div>
     </div>
