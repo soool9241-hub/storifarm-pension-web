@@ -34,7 +34,7 @@ const TIERS: Record<
     ],
     sections: [
       {
-        title: "공간 운영 자동화 홈페이지 구축",
+        title: "홈페이지 구축",
         icon: "🏠",
         items: [
           "단일 페이지 홈페이지",
@@ -45,7 +45,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "전환되는 키워드 셋팅",
+        title: "노출 관리",
         icon: "🎯",
         items: ["네이버 광고 키워드 5개 기본 세팅", "네이버 플레이스 DIY 등록 가이드"],
       },
@@ -55,7 +55,7 @@ const TIERS: Record<
         items: ["셀프 운영 가이드북 제공", "콘텐츠 월 1회 업데이트 지원"],
       },
       {
-        title: "평생 업데이트 시스템 라이센스",
+        title: "평생 업데이트 시스템",
         icon: "♾",
         items: ["시스템 자동 업데이트 (매일)", "긴급 대응: 영업일 응답"],
       },
@@ -77,7 +77,7 @@ const TIERS: Record<
     ],
     sections: [
       {
-        title: "공간 운영 자동화 홈페이지 구축",
+        title: "홈페이지 구축",
         icon: "🏠",
         items: [
           "풀 커스텀 홈페이지",
@@ -89,7 +89,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "전환되는 키워드 셋팅",
+        title: "노출 관리",
         icon: "🎯",
         items: [
           "네이버 광고 키워드 37개 직접 세팅",
@@ -107,7 +107,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "지역 파트너십 제휴",
+        title: "지역 파트너쉽 제휴",
         icon: "🤝",
         items: [
           "지역 1인 독점 우선 안내",
@@ -116,7 +116,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "평생 업데이트 시스템 라이센스",
+        title: "평생 업데이트 시스템",
         icon: "♾",
         items: ["시스템 자동 업데이트 (매일)", "신규 기능 우선 적용", "긴급 대응: 영업일 응답"],
       },
@@ -137,7 +137,7 @@ const TIERS: Record<
     ],
     sections: [
       {
-        title: "공간 운영 자동화 홈페이지 구축",
+        title: "홈페이지 구축",
         icon: "🏠",
         items: [
           "풀 커스텀 + 다지점 통합 페이지",
@@ -149,7 +149,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "전환되는 키워드 셋팅",
+        title: "노출 관리",
         icon: "🎯",
         items: [
           "네이버 광고 37 키워드 + 매월 최적화",
@@ -169,7 +169,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "지역 파트너십 제휴",
+        title: "지역 파트너쉽 제휴",
         icon: "🤝",
         items: [
           "지역 1인 독점 즉시 등록",
@@ -178,7 +178,7 @@ const TIERS: Record<
         ],
       },
       {
-        title: "평생 업데이트 시스템 라이센스",
+        title: "평생 업데이트 시스템",
         icon: "♾",
         items: [
           "시스템 자동 업데이트 (매일)",
