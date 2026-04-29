@@ -7,7 +7,7 @@ export default function Home() {
       {/* HERO */}
       <section className="border-b border-ink-100">
         <div className="container-narrow py-12 text-center sm:py-24">
-          <div className="label">공간대관 사업자님께 드리는 편지</div>
+          <div className="label">공간운영자동화 올인원 서비스 · 사장님께 드리는 편지</div>
 
           <h1 className="mt-3 text-[20px] font-bold leading-snug text-ink-900 sm:text-[32px]">
             120평 공방 10년 · 60평 펜션 7년
@@ -170,7 +170,7 @@ export default function Home() {
             {[
               {
                 tag: "제작",
-                title: "공간대관 홈페이지 제작",
+                title: "공간운영자동화 홈페이지 제작",
                 price: "150만 ~ 500만원 (1회)",
                 body: "라이트/스탠다드/프리미엄 3티어. 7년간 실전 검증한 템플릿 5종 중 하나를 고르시면 예약 시스템, SMS 자동화, 네이버 광고까지 14~21일 안에 세팅해드립니다.",
                 fits: "홈페이지가 아예 없거나, OTA에만 의존 중인 공간대관 사업자",
