@@ -139,7 +139,7 @@ export default function ContactClient({
         <div className="font-bold text-brand-900">월 구독제로 운영됩니다</div>
         <p className="mt-1">
           홈페이지 제작 + 운영 시스템 + 매일 업데이트까지 월 구독료 한 번으로 묶어드립니다.
-          시작은 단기 월 결제, 성장·완성은 1년 약정. 납품기간 14~21일,
+          모든 패키지 1년 약정 (월 구독). 납품기간 14~21일,
           납품 지연 1일당 무상 유지보수 1일을 추가로 드립니다.
         </p>
       </div>

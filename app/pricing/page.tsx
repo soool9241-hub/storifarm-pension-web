@@ -11,7 +11,7 @@ const TIERS = [
     tagline: "기본 구축",
     monthly: 39,
     promoNote: "선착순 5팀 한정 월 29만원 (10만원 할인)",
-    note: "단기 / 월 결제",
+    note: "1년 약정",
     fits: "지금 막 시작하시는 사장님 / 1개 공간 / 월 매출 400만원 이하",
     features: [
       "도메인 + 호스팅 1년",

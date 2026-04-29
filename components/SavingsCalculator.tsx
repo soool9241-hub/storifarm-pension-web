@@ -20,7 +20,7 @@ const TIERS = {
     monthly: 39,
     promo: 29,
     promoNote: "선착순 5팀 한정 월 29만",
-    note: "단기 / 월 결제",
+    note: "1년 약정",
     href: "/contact?tier=light",
     desc: "지금 막 시작하시는 사장님 — 도메인 + 예약 받을 페이지 + 기본 SMS만 깔끔하게 세팅. 부담 없이 월별로 쓰면서 효과부터 보세요.",
   },

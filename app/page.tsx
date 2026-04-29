@@ -120,38 +120,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TIER CARDS — 심플 카드 + 자세히 보기 모달 */}
-      <section className="border-b border-ink-100 bg-gradient-to-b from-white to-brand-50/30">
-        <div className="container-wide py-12 sm:py-16">
-          <div className="mx-auto max-w-2xl text-center">
-            <div className="label">3단계 시스템</div>
-            <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
-              시작 → 성장 → 완성
-            </h2>
-            <p className="mt-3 text-sm leading-relaxed text-ink-700 sm:text-base">
-              7년 운영하면서 진짜 필요한 것만 3단계로 추렸습니다.
-              <br className="hidden sm:block" />
-              <b>기본 구축 → 플랫폼+홍보 → 플랫폼+홍보+예약분석</b> — 카드의 <b>자세히 보기</b>로 포함 항목을 확인하세요.
-            </p>
-          </div>
-
-          <div className="mt-10">
-            <TierCards />
-          </div>
-        </div>
-      </section>
-
-      {/* WHY 1-YEAR — 진솔한 운영자의 변 */}
+      {/* WHY 1-YEAR — 진솔한 운영자의 변 (계산기 바로 아래) */}
       <section className="border-b border-ink-100 bg-ink-100/30">
         <div className="container-narrow py-12 sm:py-16">
           <div className="mx-auto max-w-2xl">
             <div className="label">진솔하게 말씀드리면</div>
             <h2 className="mt-2 text-xl font-bold leading-snug text-ink-900 sm:text-3xl">
-              왜 최소 1년 약정을 받느냐면요
+              왜 모든 패키지를 1년 약정으로 받느냐면요
             </h2>
             <p className="mt-3 text-[13px] leading-relaxed text-ink-700 sm:text-base">
-              저도 사장님 입장이라면 <b>단기 월 결제</b>가 더 편할 거 알아요.
-              그래서 <b>시작 패키지는 단기 월 결제</b>로 열어뒀습니다. 그런데 성장·완성은 1년으로 받습니다.
+              저도 사장님 입장이라면 <b>한 달 단위로 끊어가는 게</b> 더 편할 거 알아요.
+              그래도 저희는 <b>모든 패키지를 1년 약정</b>으로만 받습니다. 단기 손님은 받지 않습니다.
               그 이유를 솔직하게 적어둘게요.
             </p>
 
@@ -184,12 +163,34 @@ export default function Home() {
             </div>
 
             <div className="mt-10 rounded-2xl border border-brand-200 bg-brand-50 p-5 text-sm leading-relaxed text-ink-800 sm:p-6">
-              <div className="font-bold text-brand-900">짧게 시도부터 해보고 싶으시면</div>
+              <div className="font-bold text-brand-900">대신 약속드립니다</div>
               <p className="mt-2">
-                <b>시작 패키지는 단기 월 결제</b>로 열어뒀습니다 (월 39만 / 한시 29만). 한 달씩 써보시면서
-                효과 확인하시고, 맞다 싶으면 성장·완성으로 옮겨가시면 됩니다. 1년 약정은 그때 결정하세요.
+                1년 동안 사장님 매출이 의미 있게 늘지 않는다면, 제가 한 약속이 무거운 만큼 끝까지 책임집니다.
+                매월 데이터로 진척을 보여드리고, 막히는 부분은 같이 풀어드립니다. 그게 제가 1년을 받는 이유고,
+                그게 가능하기 때문에 받는 겁니다.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TIER CARDS — 심플 카드 + 자세히 보기 모달 */}
+      <section className="border-b border-ink-100 bg-gradient-to-b from-white to-brand-50/30">
+        <div className="container-wide py-12 sm:py-16">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="label">3단계 시스템</div>
+            <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
+              시작 → 성장 → 완성
+            </h2>
+            <p className="mt-3 text-sm leading-relaxed text-ink-700 sm:text-base">
+              7년 운영하면서 진짜 필요한 것만 3단계로 추렸습니다.
+              <br className="hidden sm:block" />
+              <b>기본 구축 → 플랫폼+홍보 → 플랫폼+홍보+예약분석</b> — 카드의 <b>자세히 보기</b>로 포함 항목을 확인하세요.
+            </p>
+          </div>
+
+          <div className="mt-10">
+            <TierCards />
           </div>
         </div>
       </section>

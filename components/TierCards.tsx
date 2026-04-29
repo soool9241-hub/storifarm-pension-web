@@ -94,7 +94,7 @@ const TIERS: Record<
     name: "시작 패키지",
     tagline: "기본 구축",
     price: 39,
-    note: "단기 / 월 결제",
+    note: "1년 약정",
     promo: "선착순 5팀 월 29만",
     summary: "지금 막 시작하시는 사장님",
     keyPoints: [
