@@ -4,6 +4,65 @@ import { useEffect, useState } from "react";
 
 type TierKey = "light" | "standard" | "premium";
 
+// 시작 패키지 마감일: 2026-04-30 자정 (KST)
+const PROMO_DEADLINE = new Date("2026-04-30T23:59:59+09:00");
+const SLOTS_TOTAL = 5;
+const SLOTS_LEFT = 2;
+
+function useCountdown(deadline: Date) {
+  const [now, setNow] = useState<Date | null>(null);
+  useEffect(() => {
+    setNow(new Date());
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  if (!now) return null;
+  const diff = deadline.getTime() - now.getTime();
+  if (diff <= 0) return { expired: true as const };
+  return {
+    expired: false as const,
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    mins: Math.floor((diff / (1000 * 60)) % 60),
+    secs: Math.floor((diff / 1000) % 60),
+  };
+}
+
+function UrgencyBanner({ compact = false }: { compact?: boolean }) {
+  const t = useCountdown(PROMO_DEADLINE);
+  if (!t) {
+    return (
+      <div
+        className={`rounded-xl bg-red-50 px-3 py-2 text-center font-bold text-red-700 ${
+          compact ? "text-[11px]" : "text-xs sm:text-sm"
+        }`}
+      >
+        🔥 선착순 5자리 중 {SLOTS_LEFT}자리 남음 · 4/30 자정 마감
+      </div>
+    );
+  }
+  if (t.expired) {
+    return (
+      <div className="rounded-xl bg-ink-100/60 px-3 py-2 text-center text-xs text-ink-500">
+        선착순 5팀 마감 — 다음 회차 안내드릴게요
+      </div>
+    );
+  }
+  return (
+    <div className={`rounded-xl bg-red-50 px-3 py-2 text-center text-red-700 ${compact ? "" : "py-3"}`}>
+      <div className={`font-bold ${compact ? "text-[11px]" : "text-xs sm:text-sm"}`}>
+        🔥 5자리 중 {SLOTS_LEFT}자리 남음
+      </div>
+      <div className={`mt-0.5 font-mono font-bold tabular-nums ${compact ? "text-[12px]" : "text-sm sm:text-base"}`}>
+        {t.days}일 {String(t.hours).padStart(2, "0")}:{String(t.mins).padStart(2, "0")}:{String(t.secs).padStart(2, "0")}
+      </div>
+      <div className={`mt-0.5 ${compact ? "text-[10px]" : "text-[11px]"} text-red-700/80`}>
+        4월 30일 자정 마감 · 월 29만 (10만원 할인) 적용
+      </div>
+    </div>
+  );
+}
+
 const TIERS: Record<
   TierKey,
   {
@@ -268,9 +327,16 @@ export default function TierCards() {
               </div>
               <div className={`mt-1 text-xs ${t.highlight ? "text-brand-100" : "text-ink-500"}`}>{t.note}</div>
               {t.promo && (
-                <div className="mt-3 inline-flex w-fit items-center rounded-full bg-yellow-300 px-2.5 py-1 text-[11px] font-bold text-brand-900">
-                  🎁 {t.promo}
-                </div>
+                <>
+                  <div className="mt-3 inline-flex w-fit items-center rounded-full bg-yellow-300 px-2.5 py-1 text-[11px] font-bold text-brand-900">
+                    🎁 {t.promo}
+                  </div>
+                  {key === "light" && (
+                    <div className="mt-3">
+                      <UrgencyBanner compact />
+                    </div>
+                  )}
+                </>
               )}
 
               <ul className="mt-5 space-y-2.5 border-t border-white/15 pt-5 text-sm">
@@ -349,8 +415,11 @@ export default function TierCards() {
             {/* Body */}
             <div className="max-h-[68vh] overflow-y-auto px-6 py-5">
               {TIERS[open].promo && (
-                <div className="mb-5 rounded-xl bg-yellow-100 p-3 text-center text-[12px] font-bold text-brand-900 sm:text-sm">
-                  🎁 {TIERS[open].promo} (10만원 할인)
+                <div className="mb-5 space-y-2">
+                  <div className="rounded-xl bg-yellow-100 p-3 text-center text-[12px] font-bold text-brand-900 sm:text-sm">
+                    🎁 {TIERS[open].promo} (10만원 할인)
+                  </div>
+                  {open === "light" && <UrgencyBanner />}
                 </div>
               )}
               <div className="space-y-5">
