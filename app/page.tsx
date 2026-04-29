@@ -84,6 +84,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CTA — HERO 바로 아래 */}
+      <section className="bg-brand-900 text-white">
+        <div className="container-wide py-12 text-center sm:py-16">
+          <h2 className="text-xl font-bold leading-snug sm:text-3xl">
+            먼저 사장님 공간의 온라인 상태부터 봐드릴게요
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-[13px] leading-relaxed text-white/80 sm:text-sm">
+            3분이면 끝납니다. 20개 항목 체크 후 맞춤 리포트 자동 발송.
+            제작 의뢰 여부는 그 다음에 판단하셔도 됩니다.
+          </p>
+          <a
+            href="/diagnostic"
+            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[15px] font-semibold text-brand-900 shadow-xl shadow-black/20 transition hover:bg-brand-50 sm:mt-8 sm:w-auto"
+          >
+            무료 온라인 진단 시작 →
+          </a>
+        </div>
+      </section>
+
       {/* WHY NOT AN AGENCY */}
       <section className="border-b border-ink-100">
         <div className="container-wide py-12 sm:py-16">
@@ -286,24 +305,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-brand-900 text-white">
-        <div className="container-wide py-12 text-center sm:py-16">
-          <h2 className="text-xl font-bold leading-snug sm:text-3xl">
-            먼저 사장님 공간의 온라인 상태부터 봐드릴게요
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-[13px] leading-relaxed text-white/80 sm:text-sm">
-            3분이면 끝납니다. 20개 항목 체크 후 맞춤 리포트 자동 발송.
-            제작 의뢰 여부는 그 다음에 판단하셔도 됩니다.
-          </p>
-          <a
-            href="/diagnostic"
-            className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[15px] font-semibold text-brand-900 shadow-xl shadow-black/20 transition hover:bg-brand-50 sm:mt-8 sm:w-auto"
-          >
-            무료 온라인 진단 시작 →
-          </a>
-        </div>
-      </section>
     </>
   );
 }
