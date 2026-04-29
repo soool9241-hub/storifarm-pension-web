@@ -76,6 +76,19 @@ export const CATEGORIES: DiagnosticCategory[] = [
       { id: "ad_efficient", label: "광고비를 줄이면서도 자체 예약을 늘리는 노력을 하고 있어요", score: 3, desc: "OTA·검색광고에 의존하지 않고 자체 채널 키우는 중" },
     ],
   },
+  {
+    id: "pain",
+    icon: "🆘",
+    title: "6. 지금 겪고 계신 운영 고민 (해당하면 체크)",
+    weight: 0,
+    items: [
+      { id: "pain_ota_fee", label: "높은 플랫폼 수수료가 부담돼요", score: 0, desc: "에어비앤비·야놀자 등 OTA 15%+ 수수료로 수익성이 떨어진다고 느끼심" },
+      { id: "pain_multi_space", label: "여러 공간(숙소)을 따로따로 관리하기 복잡해요", score: 0, desc: "여러 숙소의 예약·캘린더·정산을 일일이 따로 관리 중" },
+      { id: "pain_revenue_analysis", label: "매출 분석·예측이 어려워요", score: 0, desc: "통합된 수익 데이터 분석 도구가 없어서 감으로 운영 중" },
+      { id: "pain_guest_comm", label: "체크인·체크아웃·문의 응답 같은 반복 업무가 너무 많아요", score: 0, desc: "손이 너무 많이 가서 사장님이 본 업무에 집중하기 힘드심" },
+      { id: "pain_pricing", label: "경쟁력 있는 가격 설정과 마케팅 전략을 짜기 막막해요", score: 0, desc: "옆집 가격·시즌별 단가 조정·광고 전략을 어떻게 짤지 모르겠음" },
+    ],
+  },
 ];
 
 export const TOTAL_MAX = CATEGORIES.reduce(

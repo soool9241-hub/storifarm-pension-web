@@ -137,17 +137,28 @@ export default function DiagnosticClient() {
       {/* Categories */}
       {CATEGORIES.map((cat) => {
         const cs = result.categoryScores[cat.id];
+        const isPain = cat.id === "pain";
+        const checkedCount = cat.items.filter((i) => answers[i.id]).length;
         return (
           <div key={cat.id} className="card overflow-hidden">
-            <div className="flex items-center justify-between border-b border-ink-100 bg-ink-100/30 px-5 py-3">
+            <div
+              className={`flex items-center justify-between border-b border-ink-100 px-5 py-3 ${
+                isPain ? "bg-red-50" : "bg-ink-100/30"
+              }`}
+            >
               <div className="flex items-center gap-2">
                 <span className="text-lg">{cat.icon}</span>
                 <span className="text-sm font-semibold">{cat.title}</span>
               </div>
               <div className="text-xs text-ink-500">
-                {cs.score}/{cs.max}점
+                {isPain ? `${checkedCount}개 해당` : `${cs.score}/${cs.max}점`}
               </div>
             </div>
+            {isPain && (
+              <div className="border-b border-ink-100 bg-red-50/40 px-5 py-2.5 text-[11px] leading-relaxed text-red-900 sm:text-xs">
+                해당되는 고민에 체크해주시면, 리포트에 사장님 상황에 맞는 해결책을 우선순위로 정리해드립니다. (점수에는 반영되지 않습니다)
+              </div>
+            )}
             <ul className="divide-y divide-ink-100">
               {cat.items.map((item) => {
                 const checked = !!answers[item.id];
@@ -157,13 +168,19 @@ export default function DiagnosticClient() {
                       type="button"
                       onClick={() => toggle(item.id)}
                       className={`flex w-full items-start gap-3 px-5 py-4 text-left transition ${
-                        checked ? "bg-brand-50/50" : "hover:bg-ink-100/30"
+                        checked
+                          ? isPain
+                            ? "bg-red-50/60"
+                            : "bg-brand-50/50"
+                          : "hover:bg-ink-100/30"
                       }`}
                     >
                       <span
                         className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 text-[11px] ${
                           checked
-                            ? "border-brand-500 bg-brand-500 text-white"
+                            ? isPain
+                              ? "border-red-500 bg-red-500 text-white"
+                              : "border-brand-500 bg-brand-500 text-white"
                             : "border-ink-300 bg-white"
                         }`}
                       >
@@ -175,7 +192,9 @@ export default function DiagnosticClient() {
                           <div className="mt-0.5 text-xs text-ink-500">{item.desc}</div>
                         )}
                       </div>
-                      <span className="shrink-0 text-xs text-ink-500">+{item.score}</span>
+                      {item.score > 0 && (
+                        <span className="shrink-0 text-xs text-ink-500">+{item.score}</span>
+                      )}
                     </button>
                   </li>
                 );
