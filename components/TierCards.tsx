@@ -378,6 +378,42 @@ export default function TierCards() {
                 ))}
               </ul>
 
+              {/* 🎯 노출 관리 섹션 — 카드에 강조 노출 (자세히 보기 안 눌러도 보임) */}
+              {(() => {
+                const featured = t.sections.find((s) => s.title === "노출 관리");
+                if (!featured) return null;
+                return (
+                  <div
+                    className={`mt-5 rounded-2xl p-4 sm:p-5 ${
+                      t.highlight
+                        ? "bg-white/10 ring-1 ring-yellow-300/40"
+                        : "bg-brand-50 ring-1 ring-brand-100"
+                    }`}
+                  >
+                    <div
+                      className={`flex items-center gap-2 text-[13px] font-bold ${
+                        t.highlight ? "text-yellow-300" : "text-brand-900"
+                      }`}
+                    >
+                      <span>{featured.icon}</span>
+                      <span>{featured.title}</span>
+                    </div>
+                    <ul className="mt-2.5 space-y-1.5 text-[12px] leading-relaxed sm:text-[12.5px]">
+                      {featured.items.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <span
+                            className={`mt-1.5 h-1 w-1 shrink-0 rounded-full ${
+                              t.highlight ? "bg-yellow-300" : "bg-brand-500"
+                            }`}
+                          />
+                          <span className={t.highlight ? "text-white/90" : "text-ink-800"}>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })()}
+
               <div className="mt-6">
                 <button
                   type="button"
