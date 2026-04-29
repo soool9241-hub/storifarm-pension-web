@@ -108,14 +108,14 @@ export default function Home() {
       <section className="border-b border-ink-100 bg-gradient-to-b from-white to-brand-50/30">
         <div className="container-wide py-12 sm:py-16">
           <div className="mx-auto max-w-2xl text-center">
-            <div className="label">요금제</div>
+            <div className="label">요금제 비교</div>
             <h2 className="mt-2 text-xl font-bold leading-snug sm:text-3xl">
-              월 39 / 69 / 99 — 사장님께 맞는 것만 고르세요
+              월 39 / 69 / 99 — 한눈에 비교해보세요
             </h2>
             <p className="mt-3 text-sm leading-relaxed text-ink-700 sm:text-base">
               7년 운영하면서 진짜 필요한 것만 3가지로 추렸습니다.
               <br className="hidden sm:block" />
-              포함 항목은 카드 아래 <b>자세히 보기</b>로 확인하실 수 있어요.
+              5개 영역 × 3티어 — 무엇이 더 들어 있는지 색깔과 라벨로 한눈에 보세요.
             </p>
           </div>
 
